@@ -50,6 +50,9 @@ abstract class FitCore extends ChangeNotifier {
   final List<GymPlace> places = [];
   final Set<String> userEquipment = {};
 
+  final List<Friend> friends = [];
+  String inviteCode = '';
+
   final Map<String, String> exerciseMedia = {};
 
   final Map<String, int> exerciseRest = {};

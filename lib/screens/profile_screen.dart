@@ -249,6 +249,8 @@ class ProfileScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        _shortcut(gc, Ic.star, t.friendsTitle, fit.goFriends),
+        const SizedBox(height: 10),
         _shortcut(gc, Ic.trendUp, t.progress, fit.goProgress),
         const SizedBox(height: 10),
         _shortcut(gc, Ic.clock, t.timeline, () => fit.pushRoute('timeline')),

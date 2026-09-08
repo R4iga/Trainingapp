@@ -3778,6 +3778,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'VIEW ALL'**
   String get profileViewAll;
+
+  /// No description provided for @friendsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'FRIENDS'**
+  String get friendsTitle;
+
+  /// No description provided for @friendsInviteLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'YOUR INVITE CODE'**
+  String get friendsInviteLabel;
+
+  /// No description provided for @friendsInviteHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Share this code so friends can add you.'**
+  String get friendsInviteHint;
+
+  /// No description provided for @friendsList.
+  ///
+  /// In en, this message translates to:
+  /// **'FRIENDS'**
+  String get friendsList;
+
+  /// No description provided for @friendsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No friends yet. Ask a friend for their invite code, or add one below.'**
+  String get friendsEmpty;
+
+  /// No description provided for @friendsAddTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a friend'**
+  String get friendsAddTitle;
+
+  /// No description provided for @friendsNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Their name'**
+  String get friendsNameHint;
+
+  /// No description provided for @friendsCodeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite code'**
+  String get friendsCodeHint;
+
+  /// No description provided for @friendsAddCta.
+  ///
+  /// In en, this message translates to:
+  /// **'ADD'**
+  String get friendsAddCta;
+
+  /// No description provided for @friendsAddedToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Friend added.'**
+  String get friendsAddedToast;
+
+  /// No description provided for @friendsDuplicateToast.
+  ///
+  /// In en, this message translates to:
+  /// **'That friend is already on your list.'**
+  String get friendsDuplicateToast;
+
+  /// No description provided for @friendsSelfToast.
+  ///
+  /// In en, this message translates to:
+  /// **'That\'s your own invite code.'**
+  String get friendsSelfToast;
+
+  /// No description provided for @friendsMissingCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter an invite code to add a friend.'**
+  String get friendsMissingCode;
+
+  /// No description provided for @friendsInviteBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Join me on GymMane! My invite code is {code}'**
+  String friendsInviteBody(String code);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

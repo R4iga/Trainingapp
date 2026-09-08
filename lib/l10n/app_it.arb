@@ -718,5 +718,20 @@
   "profileStreakDays": "serie di {n} giorni",
   "@profileStreakDays": { "placeholders": { "n": { "type": "int" } } },
   "profileTopLifts": "MIGLIORI ALZATE",
-  "profileViewAll": "VEDI TUTTO"
+  "profileViewAll": "VEDI TUTTO",
+  "friendsTitle": "AMICI",
+  "friendsInviteLabel": "IL TUO CODICE INVITO",
+  "friendsInviteHint": "Condividi questo codice così gli amici possono aggiungerti.",
+  "friendsList": "AMICI",
+  "friendsEmpty": "Nessun amico ancora. Chiedi un codice invito o aggiungine uno qui sotto.",
+  "friendsAddTitle": "Aggiungi un amico",
+  "friendsNameHint": "Il suo nome",
+  "friendsCodeHint": "Codice invito",
+  "friendsAddCta": "AGGIUNGI",
+  "friendsAddedToast": "Amico aggiunto.",
+  "friendsDuplicateToast": "Questo amico è già nella tua lista.",
+  "friendsSelfToast": "Questo è il tuo codice invito.",
+  "friendsMissingCode": "Inserisci un codice invito per aggiungere un amico.",
+  "friendsInviteBody": "Unisciti a GymMane! Il mio codice invito è {code}",
+  "@friendsInviteBody": { "placeholders": { "code": { "type": "String" } } }
 }

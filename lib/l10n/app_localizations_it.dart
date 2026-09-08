@@ -2095,4 +2095,48 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get profileViewAll => 'VEDI TUTTO';
+
+  @override
+  String get friendsTitle => 'AMICI';
+
+  @override
+  String get friendsInviteLabel => 'IL TUO CODICE INVITO';
+
+  @override
+  String get friendsInviteHint => 'Condividi questo codice così gli amici possono aggiungerti.';
+
+  @override
+  String get friendsList => 'AMICI';
+
+  @override
+  String get friendsEmpty => 'Nessun amico ancora. Chiedi un codice invito o aggiungine uno qui sotto.';
+
+  @override
+  String get friendsAddTitle => 'Aggiungi un amico';
+
+  @override
+  String get friendsNameHint => 'Il suo nome';
+
+  @override
+  String get friendsCodeHint => 'Codice invito';
+
+  @override
+  String get friendsAddCta => 'AGGIUNGI';
+
+  @override
+  String get friendsAddedToast => 'Amico aggiunto.';
+
+  @override
+  String get friendsDuplicateToast => 'Questo amico è già nella tua lista.';
+
+  @override
+  String get friendsSelfToast => 'Questo è il tuo codice invito.';
+
+  @override
+  String get friendsMissingCode => 'Inserisci un codice invito per aggiungere un amico.';
+
+  @override
+  String friendsInviteBody(String code) {
+    return 'Unisciti a GymMane! Il mio codice invito è $code';
+  }
 }

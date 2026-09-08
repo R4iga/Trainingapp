@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import '../catalog/exercise_catalog.dart';
 import '../l10n/l10n.dart';
 import '../models/exercise.dart';
+import '../models/friend.dart';
 import '../models/live_session.dart';
 import '../models/measure.dart';
 import '../models/note.dart';
@@ -40,9 +41,10 @@ part 'timeline_state.dart';
 part 'tools_state.dart';
 part 'workout_state.dart';
 part 'equipment_state.dart';
+part 'social_state.dart';
 
 class FitState extends FitCore
-    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState, EquipmentState {
+    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState, EquipmentState, SocialState {
   void loadFromStore() {
     final data = Store.instance.load();
     _loading = true;
@@ -76,6 +78,11 @@ class FitState extends FitCore
       userEquipment
         ..clear()
         ..addAll(((data['userEquipment'] as List?) ?? const []).cast<String>());
+      inviteCode = data['inviteCode'] as String? ?? '';
+      friends
+        ..clear()
+        ..addAll(((data['friends'] as List?) ?? [])
+            .map((e) => Friend.fromJson((e as Map).cast<String, dynamic>())));
       checkins
         ..clear()
         ..addAll(((data['checkins'] as List?) ?? []).cast<String>());
@@ -256,6 +263,8 @@ class FitState extends FitCore
         'notes': notes.map((n) => n.toJson()).toList(),
         'places': places.map((p) => p.toJson()).toList(),
         'userEquipment': userEquipment.toList(),
+        'inviteCode': inviteCode,
+        'friends': friends.map((f) => f.toJson()).toList(),
         'place': activePlaceId,
         'checkins': checkins.toList(),
         'routines': routines.map((r) => r.toJson()).toList(),
@@ -300,6 +309,8 @@ class FitState extends FitCore
     places.clear();
     activePlaceId = '';
     userEquipment.clear();
+    inviteCode = '';
+    friends.clear();
     checkins.clear();
     routines.clear();
     weeklyPlan.clear();
@@ -357,6 +368,11 @@ class FitState extends FitCore
     userEquipment
       ..clear()
       ..addAll(((map['userEquipment'] as List?) ?? const []).cast<String>());
+    inviteCode = map['inviteCode'] as String? ?? inviteCode;
+    friends
+      ..clear()
+      ..addAll(((map['friends'] as List?) ?? [])
+          .map((e) => Friend.fromJson((e as Map).cast<String, dynamic>())));
     _loadNotes(map);
     if (restoredNoteMedia != null) _remapNoteMedia(restoredNoteMedia);
     checkins
@@ -499,6 +515,8 @@ class FitState extends FitCore
         backFromPlaces();
       case 'equipment':
         backFromEquipment();
+      case 'friends':
+        backFromFriends();
       case 'timeline':
         backFromTimeline();
       case 'compare':

@@ -622,5 +622,20 @@
   "profileStreakDays": "{n}-day streak",
   "@profileStreakDays": { "placeholders": { "n": { "type": "int" } } },
   "profileTopLifts": "TOP LIFTS",
-  "profileViewAll": "VIEW ALL"
+  "profileViewAll": "VIEW ALL",
+  "friendsTitle": "FRIENDS",
+  "friendsInviteLabel": "YOUR INVITE CODE",
+  "friendsInviteHint": "Share this code so friends can add you.",
+  "friendsList": "FRIENDS",
+  "friendsEmpty": "No friends yet. Ask a friend for their invite code, or add one below.",
+  "friendsAddTitle": "Add a friend",
+  "friendsNameHint": "Their name",
+  "friendsCodeHint": "Invite code",
+  "friendsAddCta": "ADD",
+  "friendsAddedToast": "Friend added.",
+  "friendsDuplicateToast": "That friend is already on your list.",
+  "friendsSelfToast": "That's your own invite code.",
+  "friendsMissingCode": "Enter an invite code to add a friend.",
+  "friendsInviteBody": "Join me on GymMane! My invite code is {code}",
+  "@friendsInviteBody": { "placeholders": { "code": { "type": "String" } } }
 }
