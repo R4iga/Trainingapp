@@ -1822,4 +1822,213 @@ class AppLocalizationsPt extends AppLocalizations {
   String daysShort(int n) {
     return '${n}d';
   }
+
+  @override
+  String get plans => 'PLANS';
+
+  @override
+  String get myPlans => 'MY PLANS';
+
+  @override
+  String get planLibrary => 'PLAN LIBRARY';
+
+  @override
+  String get newPlan => 'NEW PLAN';
+
+  @override
+  String get planNameHint => 'Plan name';
+
+  @override
+  String get newPlanName => 'New plan';
+
+  @override
+  String get emptyPlans => 'No saved plans yet. Build your first plan or import one from the library.';
+
+  @override
+  String get browseLibrary => 'BROWSE LIBRARY';
+
+  @override
+  String planDaysCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(n, locale: localeName, other: '$n days', one: '$n day');
+    return '$_temp0';
+  }
+
+  @override
+  String planExercisesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(n, locale: localeName, other: '$n exercises', one: '$n exercise');
+    return '$_temp0';
+  }
+
+  @override
+  String get startPlan => 'START';
+
+  @override
+  String get duplicatePlan => 'Duplicate';
+
+  @override
+  String get archivePlan => 'Archive';
+
+  @override
+  String get unarchivePlan => 'Restore';
+
+  @override
+  String get deletePlan => 'Delete';
+
+  @override
+  String get favoritePlan => 'Favorite';
+
+  @override
+  String get searchPlans => 'Search plans';
+
+  @override
+  String get archivedPlans => 'ARCHIVED';
+
+  @override
+  String copiedName(String name) {
+    return '$name (Copy)';
+  }
+
+  @override
+  String get confirmDeletePlan => 'Delete this plan? This cannot be undone.';
+
+  @override
+  String get planGoalLabel => 'GOAL';
+
+  @override
+  String get planDifficultyLabel => 'DIFFICULTY';
+
+  @override
+  String get planDaysLabel => 'DAYS';
+
+  @override
+  String get addDay => 'ADD DAY';
+
+  @override
+  String get dayNameHint => 'e.g. Push';
+
+  @override
+  String get dayNamePrompt => 'Day name';
+
+  @override
+  String get planDetails => 'PLAN DETAILS';
+
+  @override
+  String get planDescriptionHint => 'A short description of this plan (optional)';
+
+  @override
+  String get goalMuscleGain => 'Muscle gain';
+
+  @override
+  String get goalStrength => 'Strength';
+
+  @override
+  String get goalGeneralFitness => 'General fitness';
+
+  @override
+  String get goalBeginner => 'Beginner';
+
+  @override
+  String get goalFatLoss => 'Fat loss';
+
+  @override
+  String get goalMaintenance => 'Maintenance';
+
+  @override
+  String get planInLibrary => 'In library';
+
+  @override
+  String get importPlan => 'IMPORT';
+
+  @override
+  String get viewProgram => 'VIEW';
+
+  @override
+  String get libraryBeginner => 'BEGINNER';
+
+  @override
+  String get libraryHypertrophy => 'HYPERTROPHY';
+
+  @override
+  String get libraryStrength => 'STRENGTH';
+
+  @override
+  String get libraryGeneral => 'GENERAL FITNESS';
+
+  @override
+  String get libraryHome => 'HOME';
+
+  @override
+  String get libraryLemon => 'LEMON GYM';
+
+  @override
+  String programDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(n, locale: localeName, other: '$n days/week', one: '$n day/week');
+    return '$_temp0';
+  }
+
+  @override
+  String get importedPlans => 'IMPORTED';
+
+  @override
+  String get planSourceCustom => 'My plan';
+
+  @override
+  String get planSourceLibrary => 'Library';
+
+  @override
+  String get planSourceImported => 'Imported';
+
+  @override
+  String get planSourceShared => 'Shared';
+
+  @override
+  String get planConfigTitle => 'SETS & REPS';
+
+  @override
+  String get planConfigSets => 'Sets';
+
+  @override
+  String get planConfigReps => 'Reps';
+
+  @override
+  String get planConfigRest => 'Rest (s)';
+
+  @override
+  String get planConfigWarmup => 'Warm-up';
+
+  @override
+  String get planConfigFailure => 'To failure';
+
+  @override
+  String get planConfigDrop => 'Drop set';
+
+  @override
+  String get planAddExercises => 'ADD EXERCISES';
+
+  @override
+  String get planRemoveDay => 'Remove day';
+
+  @override
+  String get planReorderHint => 'Drag to reorder';
+
+  @override
+  String get shareCode => 'SHARE CODE';
+
+  @override
+  String get importCodeTitle => 'IMPORT CODE';
+
+  @override
+  String get importCodeHint => 'Past the GYM-XXXX-XXXX code';
+
+  @override
+  String get importCodePreview => 'Import this plan?';
+
+  @override
+  String get planNotFound => 'No plan found for that code.';
+
+  @override
+  String get planExport => 'EXPORT';
+
+  @override
+  String get importAction => 'IMPORT';
 }

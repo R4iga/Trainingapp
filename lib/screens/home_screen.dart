@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphor_icons/phosphor_icons.dart';
 
 import '../l10n/l10n.dart';
 import '../models/exercise.dart';
@@ -116,6 +116,16 @@ class HomeScreen extends StatelessWidget {
               Expanded(
                   child: _quick(gc, Icon(PhosphorIconsRegular.notebook, size: 22, color: gc.ember),
                       t.journal, fit.goNotes, badge: fit.notes.length)),
+            ]),
+            const SizedBox(height: 12),
+            Row(children: [
+              Expanded(
+                  child: _quick(gc, Icon(PhosphorIconsRegular.squaresFour, size: 22, color: gc.ember),
+                      t.plans, fit.goPlans, badge: fit.plans.length)),
+              const SizedBox(width: 12),
+              Expanded(
+                  child: _quick(gc, Icon(PhosphorIconsRegular.trendUp, size: 22, color: gc.ember),
+                      t.progress, fit.goProgress)),
             ]),
           ],
         ),

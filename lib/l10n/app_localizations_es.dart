@@ -1818,4 +1818,219 @@ class AppLocalizationsEs extends AppLocalizations {
   String daysShort(int n) {
     return '${n}d';
   }
+
+  @override
+  String get plans => 'PLANES';
+
+  @override
+  String get myPlans => 'MIS PLANES';
+
+  @override
+  String get planLibrary => 'BIBLIOTECA DE PLANES';
+
+  @override
+  String get newPlan => 'PLAN NUEVO';
+
+  @override
+  String get planNameHint => 'Nombre del plan';
+
+  @override
+  String get newPlanName => 'Plan nuevo';
+
+  @override
+  String get emptyPlans =>
+      'Aún no hay planes guardados. Crea tu primer plan o impórtalo desde la biblioteca.';
+
+  @override
+  String get browseLibrary => 'VER BIBLIOTECA';
+
+  @override
+  String planDaysCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(n, locale: localeName, other: '$n días', one: '$n día');
+    return '$_temp0';
+  }
+
+  @override
+  String planExercisesCount(int n) {
+    String _temp0 = intl.Intl.pluralLogic(n, locale: localeName, other: '$n ejercicios', one: '$n ejercicio');
+    return '$_temp0';
+  }
+
+  @override
+  String get startPlan => 'EMPEZAR';
+
+  @override
+  String get duplicatePlan => 'Duplicar';
+
+  @override
+  String get archivePlan => 'Archivar';
+
+  @override
+  String get unarchivePlan => 'Restaurar';
+
+  @override
+  String get deletePlan => 'Eliminar';
+
+  @override
+  String get favoritePlan => 'Favorito';
+
+  @override
+  String get searchPlans => 'Buscar planes';
+
+  @override
+  String get archivedPlans => 'ARCHIVADOS';
+
+  @override
+  String copiedName(String name) {
+    return '$name (copia)';
+  }
+
+  @override
+  String get confirmDeletePlan => '¿Eliminar este plan? No se puede deshacer.';
+
+  @override
+  String get planGoalLabel => 'OBJETIVO';
+
+  @override
+  String get planDifficultyLabel => 'DIFICULTAD';
+
+  @override
+  String get planDaysLabel => 'DÍAS';
+
+  @override
+  String get addDay => 'AÑADIR DÍA';
+
+  @override
+  String get dayNameHint => 'p. ej. Empuje';
+
+  @override
+  String get dayNamePrompt => 'Nombre del día';
+
+  @override
+  String get planDetails => 'DETALLES DEL PLAN';
+
+  @override
+  String get planDescriptionHint => 'Una breve descripción del plan (opcional)';
+
+  @override
+  String get goalMuscleGain => 'Ganar músculo';
+
+  @override
+  String get goalStrength => 'Fuerza';
+
+  @override
+  String get goalGeneralFitness => 'Forma general';
+
+  @override
+  String get goalBeginner => 'Principiante';
+
+  @override
+  String get goalFatLoss => 'Perder grasa';
+
+  @override
+  String get goalMaintenance => 'Mantenimiento';
+
+  @override
+  String get planInLibrary => 'En la biblioteca';
+
+  @override
+  String get importPlan => 'IMPORTAR';
+
+  @override
+  String get viewProgram => 'VER';
+
+  @override
+  String get libraryBeginner => 'PRINCIPIANTE';
+
+  @override
+  String get libraryHypertrophy => 'HIPERTROFIA';
+
+  @override
+  String get libraryStrength => 'FUERZA';
+
+  @override
+  String get libraryGeneral => 'FORMA GENERAL';
+
+  @override
+  String get libraryHome => 'INICIO';
+
+  @override
+  String get libraryLemon => 'GIMNASIO LEMON';
+
+  @override
+  String programDays(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n días/semana',
+      one: '$n día/semana',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get importedPlans => 'IMPORTADOS';
+
+  @override
+  String get planSourceCustom => 'Mi plan';
+
+  @override
+  String get planSourceLibrary => 'Biblioteca';
+
+  @override
+  String get planSourceImported => 'Importado';
+
+  @override
+  String get planSourceShared => 'Compartido';
+
+  @override
+  String get planConfigTitle => 'SERIES Y REPS';
+
+  @override
+  String get planConfigSets => 'Series';
+
+  @override
+  String get planConfigReps => 'Reps';
+
+  @override
+  String get planConfigRest => 'Descanso (s)';
+
+  @override
+  String get planConfigWarmup => 'Calentamiento';
+
+  @override
+  String get planConfigFailure => 'Hasta el fallo';
+
+  @override
+  String get planConfigDrop => 'Serie descendente';
+
+  @override
+  String get planAddExercises => 'AÑADIR EJERCICIOS';
+
+  @override
+  String get planRemoveDay => 'Quitar día';
+
+  @override
+  String get planReorderHint => 'Arrastra para reordenar';
+
+  @override
+  String get shareCode => 'CÓDIGO PARA COMPARTIR';
+
+  @override
+  String get importCodeTitle => 'CÓDIGO DE IMPORTACIÓN';
+
+  @override
+  String get importCodeHint => 'Pega el código GYM-XXXX-XXXX';
+
+  @override
+  String get importCodePreview => '¿Importar este plan?';
+
+  @override
+  String get planNotFound => 'No se encontró ningún plan con ese código.';
+
+  @override
+  String get planExport => 'EXPORTAR';
+
+  @override
+  String get importAction => 'IMPORTAR';
 }

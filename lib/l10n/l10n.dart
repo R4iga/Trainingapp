@@ -109,6 +109,15 @@ extension GymL10n on AppLocalizations {
         _ => actModerate,
       };
 
+  String planGoalName(String key) => switch (key) {
+        'muscleGain' => goalMuscleGain,
+        'strength' => goalStrength,
+        'beginner' => goalBeginner,
+        'fatLoss' => goalFatLoss,
+        'maintenance' => goalMaintenance,
+        _ => goalGeneralFitness,
+      };
+
   String muscle(String id) => switch (id) {
         'chest' => muscleChest,
         'back' => muscleBack,

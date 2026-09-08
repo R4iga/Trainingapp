@@ -134,6 +134,60 @@ mixin WorkoutState on FitCore, SettingsState, LibraryState, PlacesState, StatsSt
     notifyListeners();
   }
 
+  /// Start a workout from a plan day, pre-populating sets from the last
+  /// logged performance when available (smart start).
+  void startPlanDay(WorkoutPlan plan, int dayIndex) {
+    if (dayIndex < 0 || dayIndex >= plan.days.length) return;
+    final exs = <Exercise>[];
+    for (final pe in plan.days[dayIndex].exercises) {
+      final ex = exerciseById(pe.exerciseId);
+      if (ex != null) exs.add(ex);
+    }
+    if (exs.isEmpty) return;
+    _beginSessionWithPlan(exs, plan, dayIndex);
+  }
+
+  void _beginSessionWithPlan(List<Exercise> exs, WorkoutPlan plan, int dayIndex) {
+    final day = plan.days[dayIndex];
+    final s = WorkoutSession();
+    s.exercises = <SessionExercise>[];
+    for (final pe in day.exercises) {
+      final ex = exerciseById(pe.exerciseId);
+      if (ex == null) continue;
+      final sets = planOpeningSets(pe);
+      s.exercises.add(SessionExercise(ex.id, ex.name, ex.primary, sets));
+    }
+    _restTimer?.cancel();
+    _elapsedBefore = 0;
+    sessionPaused = false;
+    _startTicking();
+    session = s;
+    route = 'session';
+    persistNow();
+    notifyListeners();
+  }
+
+  /// Build opening sets for a plan exercise, using the last logged weight and
+  /// the plan's target reps. Falls back to the plan's config if there's no
+  /// logged history.
+  List<SessionSet> planOpeningSets(WorkoutPlanExercise pe) {
+    final last = lastSetsFor(pe.exerciseId);
+    if (last.isNotEmpty) {
+      return List.generate(pe.sets.clamp(1, 20), (i) {
+        final l = last[i < last.length ? i : last.length - 1];
+        return SessionSet(l.reps, l.weight, false,
+            kind: pe.warmup ? SetKind.warmup : SetKind.normal);
+      });
+    }
+    final targetWeight = (pe.weight ?? 0.0) > 0 ? pe.weight! : 20.0;
+    final reps = pe.reps > 0 ? pe.reps : 10;
+    return List.generate(pe.sets.clamp(1, 20), (i) {
+      final kind = (i == 0 && pe.warmup) ? SetKind.warmup : SetKind.normal;
+      final w = kind == SetKind.warmup ? targetWeight * 0.6 : targetWeight;
+      return SessionSet(reps, w, false, kind: kind);
+    });
+  }
+
   void _startTicking({DateTime? from}) {
     _sessionTimer?.cancel();
     _runningSince = from ?? DateTime.now();

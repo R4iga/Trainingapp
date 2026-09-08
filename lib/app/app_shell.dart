@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphor_icons/phosphor_icons.dart';
 
 import '../l10n/l10n.dart';
 import '../screens/about_screen.dart';
@@ -12,6 +12,9 @@ import '../screens/measures_screen.dart';
 import '../screens/note_edit_screen.dart';
 import '../screens/notes_screen.dart';
 import '../screens/onboarding_screen.dart';
+import '../screens/plan_edit_screen.dart';
+import '../screens/plan_library_screen.dart';
+import '../screens/plans_screen.dart';
 import '../screens/places_screen.dart';
 import '../screens/progress_screen.dart';
 import '../screens/routine_edit_screen.dart';
@@ -150,6 +153,12 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
         return RoutinesScreen();
       case 'routine-edit':
         return RoutineEditScreen();
+      case 'plans':
+        return PlansScreen();
+      case 'plan-edit':
+        return PlanEditScreen();
+      case 'plan-library':
+        return PlanLibraryScreen();
       case 'measures':
         return MeasuresScreen();
       case 'places':

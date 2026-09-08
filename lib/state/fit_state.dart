@@ -17,6 +17,8 @@ import '../models/place.dart';
 import '../models/profile.dart';
 import '../models/progress_shot.dart';
 import '../models/workout.dart';
+import '../models/workout_plan.dart';
+import '../catalog/workout_programs.dart';
 import '../services/alarm_store.dart';
 import '../services/exercise_match.dart';
 import '../services/local_store.dart';
@@ -30,6 +32,7 @@ part 'library_state.dart';
 part 'measures_state.dart';
 part 'notes_state.dart';
 part 'places_state.dart';
+part 'plans_state.dart';
 part 'routines_state.dart';
 part 'settings_state.dart';
 part 'stats_state.dart';
@@ -38,10 +41,11 @@ part 'tools_state.dart';
 part 'workout_state.dart';
 
 class FitState extends FitCore
-    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, TimelineState, StatsState, RoutinesState, WorkoutState {
+    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState {
   void loadFromStore() {
     final data = Store.instance.load();
     _loading = true;
+    _ensureLibrary();
     if (data['language'] == null) _adoptDeviceLanguage();
     if (data.isNotEmpty) {
       profile = Profile.fromJson((data['profile'] as Map?)?.cast<String, dynamic>() ?? {});
@@ -75,6 +79,10 @@ class FitState extends FitCore
         ..clear()
         ..addAll(((data['routines'] as List?) ?? [])
             .map((e) => Routine.fromJson((e as Map).cast<String, dynamic>())));
+      plans
+        ..clear()
+        ..addAll(((data['plans'] as List?) ?? [])
+            .map((e) => WorkoutPlan.fromJson((e as Map).cast<String, dynamic>())));
       weeklyPlan
         ..clear()
         ..addAll(((data['weeklyPlan'] as Map?) ?? {})
@@ -246,6 +254,7 @@ class FitState extends FitCore
         'place': activePlaceId,
         'checkins': checkins.toList(),
         'routines': routines.map((r) => r.toJson()).toList(),
+        'plans': plans.map((p) => p.toJson()).toList(),
         'weeklyPlan': weeklyPlan.map((k, v) => MapEntry(k.toString(), v)),
         'custom': customExercises.map((e) => e.toJson()).toList(),
         'media': exerciseMedia,
@@ -288,6 +297,8 @@ class FitState extends FitCore
     checkins.clear();
     routines.clear();
     weeklyPlan.clear();
+    plans.clear();
+    libraryPlans.clear();
     customExercises.clear();
     exerciseMedia.clear();
     repsOnly.clear();
@@ -346,6 +357,10 @@ class FitState extends FitCore
       ..clear()
       ..addAll(((map['routines'] as List?) ?? [])
           .map((e) => Routine.fromJson((e as Map).cast<String, dynamic>())));
+    plans
+      ..clear()
+      ..addAll(((map['plans'] as List?) ?? [])
+          .map((e) => WorkoutPlan.fromJson((e as Map).cast<String, dynamic>())));
     weeklyPlan
       ..clear()
       ..addAll(((map['weeklyPlan'] as Map?) ?? {})
@@ -463,6 +478,12 @@ class FitState extends FitCore
         backFromRoutines();
       case 'routine-edit':
         closeRoutineEdit();
+      case 'plans':
+        backFromPlans();
+      case 'plan-edit':
+        closePlanEdit();
+      case 'plan-library':
+        backFromLibrary();
       case 'measures':
         backFromMeasures();
       case 'places':

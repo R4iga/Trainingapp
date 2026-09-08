@@ -3268,6 +3268,402 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{n}d'**
   String daysShort(int n);
+
+  /// No description provided for @plans.
+  ///
+  /// In en, this message translates to:
+  /// **'PLANS'**
+  String get plans;
+
+  /// No description provided for @myPlans.
+  ///
+  /// In en, this message translates to:
+  /// **'MY PLANS'**
+  String get myPlans;
+
+  /// No description provided for @planLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'PLAN LIBRARY'**
+  String get planLibrary;
+
+  /// No description provided for @newPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'NEW PLAN'**
+  String get newPlan;
+
+  /// No description provided for @planNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan name'**
+  String get planNameHint;
+
+  /// No description provided for @newPlanName.
+  ///
+  /// In en, this message translates to:
+  /// **'New plan'**
+  String get newPlanName;
+
+  /// No description provided for @emptyPlans.
+  ///
+  /// In en, this message translates to:
+  /// **'No saved plans yet. Build your first plan or import one from the library.'**
+  String get emptyPlans;
+
+  /// No description provided for @browseLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'BROWSE LIBRARY'**
+  String get browseLibrary;
+
+  /// No description provided for @planDaysCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, =1{{n} day} other{{n} days}}'**
+  String planDaysCount(int n);
+
+  /// No description provided for @planExercisesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, =1{{n} exercise} other{{n} exercises}}'**
+  String planExercisesCount(int n);
+
+  /// No description provided for @startPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'START'**
+  String get startPlan;
+
+  /// No description provided for @duplicatePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicate'**
+  String get duplicatePlan;
+
+  /// No description provided for @archivePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive'**
+  String get archivePlan;
+
+  /// No description provided for @unarchivePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore'**
+  String get unarchivePlan;
+
+  /// No description provided for @deletePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get deletePlan;
+
+  /// No description provided for @favoritePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get favoritePlan;
+
+  /// No description provided for @searchPlans.
+  ///
+  /// In en, this message translates to:
+  /// **'Search plans'**
+  String get searchPlans;
+
+  /// No description provided for @archivedPlans.
+  ///
+  /// In en, this message translates to:
+  /// **'ARCHIVED'**
+  String get archivedPlans;
+
+  /// No description provided for @copiedName.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} (Copy)'**
+  String copiedName(String name);
+
+  /// No description provided for @confirmDeletePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this plan? This cannot be undone.'**
+  String get confirmDeletePlan;
+
+  /// No description provided for @planGoalLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'GOAL'**
+  String get planGoalLabel;
+
+  /// No description provided for @planDifficultyLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'DIFFICULTY'**
+  String get planDifficultyLabel;
+
+  /// No description provided for @planDaysLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'DAYS'**
+  String get planDaysLabel;
+
+  /// No description provided for @addDay.
+  ///
+  /// In en, this message translates to:
+  /// **'ADD DAY'**
+  String get addDay;
+
+  /// No description provided for @dayNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Push'**
+  String get dayNameHint;
+
+  /// No description provided for @dayNamePrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Day name'**
+  String get dayNamePrompt;
+
+  /// No description provided for @planDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'PLAN DETAILS'**
+  String get planDetails;
+
+  /// No description provided for @planDescriptionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'A short description of this plan (optional)'**
+  String get planDescriptionHint;
+
+  /// No description provided for @goalMuscleGain.
+  ///
+  /// In en, this message translates to:
+  /// **'Muscle gain'**
+  String get goalMuscleGain;
+
+  /// No description provided for @goalStrength.
+  ///
+  /// In en, this message translates to:
+  /// **'Strength'**
+  String get goalStrength;
+
+  /// No description provided for @goalGeneralFitness.
+  ///
+  /// In en, this message translates to:
+  /// **'General fitness'**
+  String get goalGeneralFitness;
+
+  /// No description provided for @goalBeginner.
+  ///
+  /// In en, this message translates to:
+  /// **'Beginner'**
+  String get goalBeginner;
+
+  /// No description provided for @goalFatLoss.
+  ///
+  /// In en, this message translates to:
+  /// **'Fat loss'**
+  String get goalFatLoss;
+
+  /// No description provided for @goalMaintenance.
+  ///
+  /// In en, this message translates to:
+  /// **'Maintenance'**
+  String get goalMaintenance;
+
+  /// No description provided for @planInLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'In library'**
+  String get planInLibrary;
+
+  /// No description provided for @importPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'IMPORT'**
+  String get importPlan;
+
+  /// No description provided for @viewProgram.
+  ///
+  /// In en, this message translates to:
+  /// **'VIEW'**
+  String get viewProgram;
+
+  /// No description provided for @libraryBeginner.
+  ///
+  /// In en, this message translates to:
+  /// **'BEGINNER'**
+  String get libraryBeginner;
+
+  /// No description provided for @libraryHypertrophy.
+  ///
+  /// In en, this message translates to:
+  /// **'HYPERTROPHY'**
+  String get libraryHypertrophy;
+
+  /// No description provided for @libraryStrength.
+  ///
+  /// In en, this message translates to:
+  /// **'STRENGTH'**
+  String get libraryStrength;
+
+  /// No description provided for @libraryGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'GENERAL FITNESS'**
+  String get libraryGeneral;
+
+  /// No description provided for @libraryHome.
+  ///
+  /// In en, this message translates to:
+  /// **'HOME'**
+  String get libraryHome;
+
+  /// No description provided for @libraryLemon.
+  ///
+  /// In en, this message translates to:
+  /// **'LEMON GYM'**
+  String get libraryLemon;
+
+  /// No description provided for @programDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, =1{{n} day/week} other{{n} days/week}}'**
+  String programDays(int n);
+
+  /// No description provided for @importedPlans.
+  ///
+  /// In en, this message translates to:
+  /// **'IMPORTED'**
+  String get importedPlans;
+
+  /// No description provided for @planSourceCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'My plan'**
+  String get planSourceCustom;
+
+  /// No description provided for @planSourceLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'Library'**
+  String get planSourceLibrary;
+
+  /// No description provided for @planSourceImported.
+  ///
+  /// In en, this message translates to:
+  /// **'Imported'**
+  String get planSourceImported;
+
+  /// No description provided for @planSourceShared.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared'**
+  String get planSourceShared;
+
+  /// No description provided for @planConfigTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'SETS & REPS'**
+  String get planConfigTitle;
+
+  /// No description provided for @planConfigSets.
+  ///
+  /// In en, this message translates to:
+  /// **'Sets'**
+  String get planConfigSets;
+
+  /// No description provided for @planConfigReps.
+  ///
+  /// In en, this message translates to:
+  /// **'Reps'**
+  String get planConfigReps;
+
+  /// No description provided for @planConfigRest.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest (s)'**
+  String get planConfigRest;
+
+  /// No description provided for @planConfigWarmup.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm-up'**
+  String get planConfigWarmup;
+
+  /// No description provided for @planConfigFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'To failure'**
+  String get planConfigFailure;
+
+  /// No description provided for @planConfigDrop.
+  ///
+  /// In en, this message translates to:
+  /// **'Drop set'**
+  String get planConfigDrop;
+
+  /// No description provided for @planAddExercises.
+  ///
+  /// In en, this message translates to:
+  /// **'ADD EXERCISES'**
+  String get planAddExercises;
+
+  /// No description provided for @planRemoveDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove day'**
+  String get planRemoveDay;
+
+  /// No description provided for @planReorderHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag to reorder'**
+  String get planReorderHint;
+
+  /// No description provided for @shareCode.
+  ///
+  /// In en, this message translates to:
+  /// **'SHARE CODE'**
+  String get shareCode;
+
+  /// No description provided for @importCodeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'IMPORT CODE'**
+  String get importCodeTitle;
+
+  /// No description provided for @importCodeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Past the GYM-XXXX-XXXX code'**
+  String get importCodeHint;
+
+  /// No description provided for @importCodePreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Import this plan?'**
+  String get importCodePreview;
+
+  /// No description provided for @planNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No plan found for that code.'**
+  String get planNotFound;
+
+  /// No description provided for @planExport.
+  ///
+  /// In en, this message translates to:
+  /// **'EXPORT'**
+  String get planExport;
+
+  /// No description provided for @importAction.
+  ///
+  /// In en, this message translates to:
+  /// **'IMPORT'**
+  String get importAction;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
