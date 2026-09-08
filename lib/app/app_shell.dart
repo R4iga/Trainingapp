@@ -15,6 +15,7 @@ import '../screens/notes_screen.dart';
 import '../screens/onboarding_screen.dart';
 import '../screens/plan_edit_screen.dart';
 import '../screens/plan_library_screen.dart';
+import '../screens/profile_screen.dart';
 import '../screens/plans_screen.dart';
 import '../screens/places_screen.dart';
 import '../screens/progress_screen.dart';
@@ -166,6 +167,8 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
         return PlacesScreen();
       case 'equipment':
         return const EquipmentScreen();
+      case 'profile':
+        return const ProfileScreen();
       case 'timeline':
         return TimelineScreen();
       case 'compare':

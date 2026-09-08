@@ -73,6 +73,10 @@ void main() {
     await visit(tester, 'exercise-detail');
   });
 
+  testWidgets('profile draws without blowing up', (tester) async {
+    await visit(tester, 'profile');
+  });
+
   testWidgets('the app draws in every shipped language', (tester) async {
     final before = fit.language;
     for (final code in appLanguages) {

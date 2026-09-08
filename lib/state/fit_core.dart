@@ -86,6 +86,8 @@ abstract class FitCore extends ChangeNotifier {
 
   void goProgress() => _setRoute('progress', reset: true);
 
+  void goProfile() => _setRoute('profile', reset: true);
+
   void goExercises() => _setRoute('exercises', reset: true);
 
   void goSettings() => _setRoute('settings', reset: true);

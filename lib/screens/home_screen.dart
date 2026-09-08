@@ -32,15 +32,39 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(t.today,
-                        style: AppTheme.s(11, weight: FontWeight.w600, color: gc.textTertiary, letterSpacing: 1.5)),
-                    const SizedBox(height: 2),
-                    Text(dateLabel, style: AppTheme.d(20, weight: FontWeight.w600, color: gc.text)),
-                  ],
+                GestureDetector(
+                  onTap: fit.goProfile,
+                  child: Container(
+                    width: 42,
+                    height: 42,
+                    decoration: BoxDecoration(
+                      color: gc.emberSoft,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: gc.border),
+                    ),
+                    clipBehavior: Clip.antiAlias,
+                    child: Center(
+                        child: Text(
+                            fit.profile.name.isEmpty
+                                ? '?'
+                                : fit.profile.name[0].toUpperCase(),
+                            style: AppTheme.d(
+                                18, weight: FontWeight.w700, color: gc.ember))),
+                  ),
                 ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(t.today,
+                          style: AppTheme.s(11, weight: FontWeight.w600, color: gc.textTertiary, letterSpacing: 1.5)),
+                      const SizedBox(height: 2),
+                      Text(dateLabel, style: AppTheme.d(20, weight: FontWeight.w600, color: gc.text)),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 10),
                 GestureDetector(
                   onTap: fit.goProgress,
                   child: Container(

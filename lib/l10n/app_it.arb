@@ -712,5 +712,11 @@
   "equipmentPresetHome": "Sistema a casa",
   "equipmentPresetFullGym": "Palestra completa",
   "equipmentPresetMinimal": "Minimo (niente panca)",
-  "equipmentNoSuggestions": "Aggiungi attrezzatura per vedere gli allenamenti suggeriti."
+  "equipmentNoSuggestions": "Aggiungi attrezzatura per vedere gli allenamenti suggeriti.",
+  "profileTitle": "PROFILO",
+  "profileWorkouts": "allenamenti",
+  "profileStreakDays": "serie di {n} giorni",
+  "@profileStreakDays": { "placeholders": { "n": { "type": "int" } } },
+  "profileTopLifts": "MIGLIORI ALZATE",
+  "profileViewAll": "VEDI TUTTO"
 }

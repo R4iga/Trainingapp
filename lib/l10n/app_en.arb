@@ -712,5 +712,11 @@
   "equipmentPresetHome": "Home setup",
   "equipmentPresetFullGym": "Full gym",
   "equipmentPresetMinimal": "Minimal (no bench)",
-  "equipmentNoSuggestions": "Add some gear to see suggested workouts."
+  "equipmentNoSuggestions": "Add some gear to see suggested workouts.",
+  "profileTitle": "PROFILE",
+  "profileWorkouts": "workouts",
+  "profileStreakDays": "{n}-day streak",
+  "@profileStreakDays": { "placeholders": { "n": { "type": "int" } } },
+  "profileTopLifts": "TOP LIFTS",
+  "profileViewAll": "VIEW ALL"
 }

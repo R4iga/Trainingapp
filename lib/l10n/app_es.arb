@@ -664,5 +664,11 @@
   "equipmentPresetHome": "Sistema en casa",
   "equipmentPresetFullGym": "Gimnasio completo",
   "equipmentPresetMinimal": "Mínimo (sin banco)",
-  "equipmentNoSuggestions": "Añade algo de equipamiento para ver rutinas sugeridas."
+  "equipmentNoSuggestions": "Añade algo de equipamiento para ver rutinas sugeridas.",
+  "profileTitle": "PERFIL",
+  "profileWorkouts": "entrenos",
+  "profileStreakDays": "racha de {n} días",
+  "@profileStreakDays": { "placeholders": { "n": { "type": "int" } } },
+  "profileTopLifts": "MEJORES LEVANTAMIENTOS",
+  "profileViewAll": "VER TODO"
 }

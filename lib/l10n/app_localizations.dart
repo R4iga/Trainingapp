@@ -3748,6 +3748,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add some gear to see suggested workouts.'**
   String get equipmentNoSuggestions;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'PROFILE'**
+  String get profileTitle;
+
+  /// No description provided for @profileWorkouts.
+  ///
+  /// In en, this message translates to:
+  /// **'workouts'**
+  String get profileWorkouts;
+
+  /// No description provided for @profileStreakDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{n}-day streak'**
+  String profileStreakDays(int n);
+
+  /// No description provided for @profileTopLifts.
+  ///
+  /// In en, this message translates to:
+  /// **'TOP LIFTS'**
+  String get profileTopLifts;
+
+  /// No description provided for @profileViewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'VIEW ALL'**
+  String get profileViewAll;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

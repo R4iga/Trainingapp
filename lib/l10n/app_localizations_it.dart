@@ -2078,4 +2078,21 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get equipmentNoSuggestions => 'Aggiungi attrezzatura per vedere gli allenamenti suggeriti.';
+
+  @override
+  String get profileTitle => 'PROFILO';
+
+  @override
+  String get profileWorkouts => 'allenamenti';
+
+  @override
+  String profileStreakDays(int n) {
+    return 'serie di $n giorni';
+  }
+
+  @override
+  String get profileTopLifts => 'MIGLIORI ALZATE';
+
+  @override
+  String get profileViewAll => 'VEDI TUTTO';
 }

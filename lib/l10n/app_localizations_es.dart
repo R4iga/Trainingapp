@@ -2077,4 +2077,21 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get equipmentNoSuggestions => 'Añade algo de equipamiento para ver rutinas sugeridas.';
+
+  @override
+  String get profileTitle => 'PERFIL';
+
+  @override
+  String get profileWorkouts => 'entrenos';
+
+  @override
+  String profileStreakDays(int n) {
+    return 'racha de $n días';
+  }
+
+  @override
+  String get profileTopLifts => 'MEJORES LEVANTAMIENTOS';
+
+  @override
+  String get profileViewAll => 'VER TODO';
 }
