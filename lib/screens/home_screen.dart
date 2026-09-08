@@ -157,7 +157,9 @@ class HomeScreen extends StatelessWidget {
                   child: _quick(gc, Icon(PhosphorIconsRegular.barbell, size: 22, color: gc.ember),
                       t.equipmentNav, fit.goEquipment, badge: fit.userEquipment.length)),
               const SizedBox(width: 12),
-              const Spacer(),
+              Expanded(
+                  child: _quick(gc, Icon(PhosphorIconsRegular.usersThree, size: 22, color: gc.ember),
+                      t.feedTitle, fit.goFeed, badge: fit.posts.length)),
             ]),
           ],
         ),

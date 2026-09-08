@@ -694,5 +694,18 @@
   "groupsNoFriendsHint": "Añade amigos antes de poder invitarlos a un grupo.",
   "groupsMembersLabel": "miembros",
   "groupsCreate": "CREAR",
-  "groupsCreatedToast": "Grupo creado."
+  "groupsCreatedToast": "Grupo creado.",
+  "feedTitle": "MURAL",
+  "feedEmpty": "Tu mural está tranquilo. ¡Publica tu primera actualización!",
+  "feedComposeHint": "Comparte algo con tu equipo…",
+  "feedPost": "PUBLICAR",
+  "feedYou": "tú",
+  "feedSessionCard": "Entreno: {exercises} ejercicios · {volume} · {when}",
+  "@feedSessionCard": {
+    "placeholders": {
+      "exercises": { "type": "String" },
+      "volume": { "type": "String" },
+      "when": { "type": "String" }
+    }
+  }
 }

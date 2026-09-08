@@ -2166,4 +2166,24 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get groupsCreatedToast => 'Grupo creado.';
+
+  @override
+  String get feedTitle => 'MURAL';
+
+  @override
+  String get feedEmpty => 'Tu mural está tranquilo. ¡Publica tu primera actualización!';
+
+  @override
+  String get feedComposeHint => 'Comparte algo con tu equipo…';
+
+  @override
+  String get feedPost => 'PUBLICAR';
+
+  @override
+  String get feedYou => 'tú';
+
+  @override
+  String feedSessionCard(String exercises, String volume, String when) {
+    return 'Entreno: $exercises ejercicios · $volume · $when';
+  }
 }

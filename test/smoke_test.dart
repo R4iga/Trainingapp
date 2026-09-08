@@ -85,6 +85,10 @@ void main() {
     await visit(tester, 'groups');
   });
 
+  testWidgets('feed draws without blowing up', (tester) async {
+    await visit(tester, 'feed');
+  });
+
   testWidgets('the app draws in every shipped language', (tester) async {
     final before = fit.language;
     for (final code in appLanguages) {

@@ -3916,6 +3916,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Group created.'**
   String get groupsCreatedToast;
+
+  /// No description provided for @feedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'FEED'**
+  String get feedTitle;
+
+  /// No description provided for @feedEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Your feed is quiet. Post your first update!'**
+  String get feedEmpty;
+
+  /// No description provided for @feedComposeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Share something with your crew…'**
+  String get feedComposeHint;
+
+  /// No description provided for @feedPost.
+  ///
+  /// In en, this message translates to:
+  /// **'POST'**
+  String get feedPost;
+
+  /// No description provided for @feedYou.
+  ///
+  /// In en, this message translates to:
+  /// **'you'**
+  String get feedYou;
+
+  /// No description provided for @feedSessionCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout: {exercises} exercises · {volume} · {when}'**
+  String feedSessionCard(String exercises, String volume, String when);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

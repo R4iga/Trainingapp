@@ -742,5 +742,18 @@
   "groupsNoFriendsHint": "Aggiungi amici prima di poterli invitare in un gruppo.",
   "groupsMembersLabel": "membri",
   "groupsCreate": "CREA",
-  "groupsCreatedToast": "Gruppo creato."
+  "groupsCreatedToast": "Gruppo creato.",
+  "feedTitle": "FEED",
+  "feedEmpty": "Il tuo feed è tranquillo. Pubblica il primo aggiornamento!",
+  "feedComposeHint": "Condividi qualcosa con i tuoi compagni…",
+  "feedPost": "PUBBLICA",
+  "feedYou": "tu",
+  "feedSessionCard": "Allenamento: {exercises} esercizi · {volume} · {when}",
+  "@feedSessionCard": {
+    "placeholders": {
+      "exercises": { "type": "String" },
+      "volume": { "type": "String" },
+      "when": { "type": "String" }
+    }
+  }
 }

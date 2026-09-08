@@ -646,5 +646,18 @@
   "groupsNoFriendsHint": "Add friends first before you can invite them to a group.",
   "groupsMembersLabel": "members",
   "groupsCreate": "CREATE",
-  "groupsCreatedToast": "Group created."
+  "groupsCreatedToast": "Group created.",
+  "feedTitle": "FEED",
+  "feedEmpty": "Your feed is quiet. Post your first update!",
+  "feedComposeHint": "Share something with your crew…",
+  "feedPost": "POST",
+  "feedYou": "you",
+  "feedSessionCard": "Workout: {exercises} exercises · {volume} · {when}",
+  "@feedSessionCard": {
+    "placeholders": {
+      "exercises": { "type": "String" },
+      "volume": { "type": "String" },
+      "when": { "type": "String" }
+    }
+  }
 }

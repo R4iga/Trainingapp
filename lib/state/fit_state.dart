@@ -13,6 +13,7 @@ import '../models/exercise.dart';
 import '../models/friend.dart';
 import '../models/group.dart';
 import '../models/live_session.dart';
+import '../models/post.dart';
 import '../models/measure.dart';
 import '../models/note.dart';
 import '../models/place.dart';
@@ -44,9 +45,10 @@ part 'workout_state.dart';
 part 'equipment_state.dart';
 part 'social_state.dart';
 part 'groups_state.dart';
+part 'feed_state.dart';
 
 class FitState extends FitCore
-    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState, EquipmentState, SocialState, GroupsState {
+    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState, EquipmentState, SocialState, GroupsState, FeedState {
   void loadFromStore() {
     final data = Store.instance.load();
     _loading = true;
@@ -89,6 +91,10 @@ class FitState extends FitCore
         ..clear()
         ..addAll(((data['groups'] as List?) ?? [])
             .map((e) => Group.fromJson((e as Map).cast<String, dynamic>())));
+      posts
+        ..clear()
+        ..addAll(((data['posts'] as List?) ?? [])
+            .map((e) => Post.fromJson((e as Map).cast<String, dynamic>())));
       checkins
         ..clear()
         ..addAll(((data['checkins'] as List?) ?? []).cast<String>());
@@ -272,6 +278,7 @@ class FitState extends FitCore
         'inviteCode': inviteCode,
         'friends': friends.map((f) => f.toJson()).toList(),
         'groups': groups.map((g) => g.toJson()).toList(),
+        'posts': posts.map((p) => p.toJson()).toList(),
         'place': activePlaceId,
         'checkins': checkins.toList(),
         'routines': routines.map((r) => r.toJson()).toList(),
@@ -320,6 +327,8 @@ class FitState extends FitCore
     friends.clear();
     groups.clear();
     _groupSeq = 0;
+    posts.clear();
+    _postSeq = 0;
     checkins.clear();
     routines.clear();
     weeklyPlan.clear();
@@ -386,6 +395,10 @@ class FitState extends FitCore
       ..clear()
       ..addAll(((map['groups'] as List?) ?? [])
           .map((e) => Group.fromJson((e as Map).cast<String, dynamic>())));
+    posts
+      ..clear()
+      ..addAll(((map['posts'] as List?) ?? [])
+          .map((e) => Post.fromJson((e as Map).cast<String, dynamic>())));
     _loadNotes(map);
     if (restoredNoteMedia != null) _remapNoteMedia(restoredNoteMedia);
     checkins
@@ -532,6 +545,8 @@ class FitState extends FitCore
         backFromFriends();
       case 'groups':
         backFromGroups();
+      case 'feed':
+        backFromFeed();
       case 'timeline':
         backFromTimeline();
       case 'compare':

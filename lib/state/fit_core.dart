@@ -55,6 +55,8 @@ abstract class FitCore extends ChangeNotifier {
 
   final List<Group> groups = [];
 
+  final List<Post> posts = [];
+
   final Map<String, String> exerciseMedia = {};
 
   final Map<String, int> exerciseRest = {};
