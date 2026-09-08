@@ -9,6 +9,7 @@ import '../screens/exercise_detail_screen.dart';
 import '../screens/exercises_screen.dart';
 import '../screens/equipment_screen.dart';
 import '../screens/friends_screen.dart';
+import '../screens/groups_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/measures_screen.dart';
 import '../screens/note_edit_screen.dart';
@@ -172,6 +173,8 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
         return const ProfileScreen();
       case 'friends':
         return const FriendsScreen();
+      case 'groups':
+        return const GroupsScreen();
       case 'timeline':
         return TimelineScreen();
       case 'compare':

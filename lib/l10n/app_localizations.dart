@@ -3862,6 +3862,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Join me on GymMane! My invite code is {code}'**
   String friendsInviteBody(String code);
+
+  /// No description provided for @groupsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'GROUPS'**
+  String get groupsTitle;
+
+  /// No description provided for @groupsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a group to train together.'**
+  String get groupsEmpty;
+
+  /// No description provided for @groupsNewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New group'**
+  String get groupsNewTitle;
+
+  /// No description provided for @groupsNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Group name'**
+  String get groupsNameHint;
+
+  /// No description provided for @groupsRoster.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite friends'**
+  String get groupsRoster;
+
+  /// No description provided for @groupsNoFriendsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add friends first before you can invite them to a group.'**
+  String get groupsNoFriendsHint;
+
+  /// No description provided for @groupsMembersLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'members'**
+  String get groupsMembersLabel;
+
+  /// No description provided for @groupsCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'CREATE'**
+  String get groupsCreate;
+
+  /// No description provided for @groupsCreatedToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Group created.'**
+  String get groupsCreatedToast;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

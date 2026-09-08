@@ -53,6 +53,8 @@ abstract class FitCore extends ChangeNotifier {
   final List<Friend> friends = [];
   String inviteCode = '';
 
+  final List<Group> groups = [];
+
   final Map<String, String> exerciseMedia = {};
 
   final Map<String, int> exerciseRest = {};

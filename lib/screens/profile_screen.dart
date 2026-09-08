@@ -251,6 +251,8 @@ class ProfileScreen extends StatelessWidget {
       children: [
         _shortcut(gc, Ic.star, t.friendsTitle, fit.goFriends),
         const SizedBox(height: 10),
+        _shortcut(gc, Ic.layers, t.groupsTitle, fit.goGroups),
+        const SizedBox(height: 10),
         _shortcut(gc, Ic.trendUp, t.progress, fit.goProgress),
         const SizedBox(height: 10),
         _shortcut(gc, Ic.clock, t.timeline, () => fit.pushRoute('timeline')),

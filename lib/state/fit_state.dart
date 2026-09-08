@@ -11,6 +11,7 @@ import '../catalog/exercise_catalog.dart';
 import '../l10n/l10n.dart';
 import '../models/exercise.dart';
 import '../models/friend.dart';
+import '../models/group.dart';
 import '../models/live_session.dart';
 import '../models/measure.dart';
 import '../models/note.dart';
@@ -42,9 +43,10 @@ part 'tools_state.dart';
 part 'workout_state.dart';
 part 'equipment_state.dart';
 part 'social_state.dart';
+part 'groups_state.dart';
 
 class FitState extends FitCore
-    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState, EquipmentState, SocialState {
+    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState, EquipmentState, SocialState, GroupsState {
   void loadFromStore() {
     final data = Store.instance.load();
     _loading = true;
@@ -83,6 +85,10 @@ class FitState extends FitCore
         ..clear()
         ..addAll(((data['friends'] as List?) ?? [])
             .map((e) => Friend.fromJson((e as Map).cast<String, dynamic>())));
+      groups
+        ..clear()
+        ..addAll(((data['groups'] as List?) ?? [])
+            .map((e) => Group.fromJson((e as Map).cast<String, dynamic>())));
       checkins
         ..clear()
         ..addAll(((data['checkins'] as List?) ?? []).cast<String>());
@@ -265,6 +271,7 @@ class FitState extends FitCore
         'userEquipment': userEquipment.toList(),
         'inviteCode': inviteCode,
         'friends': friends.map((f) => f.toJson()).toList(),
+        'groups': groups.map((g) => g.toJson()).toList(),
         'place': activePlaceId,
         'checkins': checkins.toList(),
         'routines': routines.map((r) => r.toJson()).toList(),
@@ -311,6 +318,8 @@ class FitState extends FitCore
     userEquipment.clear();
     inviteCode = '';
     friends.clear();
+    groups.clear();
+    _groupSeq = 0;
     checkins.clear();
     routines.clear();
     weeklyPlan.clear();
@@ -373,6 +382,10 @@ class FitState extends FitCore
       ..clear()
       ..addAll(((map['friends'] as List?) ?? [])
           .map((e) => Friend.fromJson((e as Map).cast<String, dynamic>())));
+    groups
+      ..clear()
+      ..addAll(((map['groups'] as List?) ?? [])
+          .map((e) => Group.fromJson((e as Map).cast<String, dynamic>())));
     _loadNotes(map);
     if (restoredNoteMedia != null) _remapNoteMedia(restoredNoteMedia);
     checkins
@@ -517,6 +530,8 @@ class FitState extends FitCore
         backFromEquipment();
       case 'friends':
         backFromFriends();
+      case 'groups':
+        backFromGroups();
       case 'timeline':
         backFromTimeline();
       case 'compare':

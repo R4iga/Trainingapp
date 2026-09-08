@@ -2139,4 +2139,31 @@ class AppLocalizationsEs extends AppLocalizations {
   String friendsInviteBody(String code) {
     return 'Únete a GymMane. Mi código de invitación es $code';
   }
+
+  @override
+  String get groupsTitle => 'GRUPOS';
+
+  @override
+  String get groupsEmpty => 'Crea un grupo para entrenar juntos.';
+
+  @override
+  String get groupsNewTitle => 'Nuevo grupo';
+
+  @override
+  String get groupsNameHint => 'Nombre del grupo';
+
+  @override
+  String get groupsRoster => 'Invitar amigos';
+
+  @override
+  String get groupsNoFriendsHint => 'Añade amigos antes de poder invitarlos a un grupo.';
+
+  @override
+  String get groupsMembersLabel => 'miembros';
+
+  @override
+  String get groupsCreate => 'CREAR';
+
+  @override
+  String get groupsCreatedToast => 'Grupo creado.';
 }

@@ -685,5 +685,14 @@
   "friendsSelfToast": "Ese es tu propio código de invitación.",
   "friendsMissingCode": "Introduce un código de invitación para añadir un amigo.",
   "friendsInviteBody": "Únete a GymMane. Mi código de invitación es {code}",
-  "@friendsInviteBody": { "placeholders": { "code": { "type": "String" } } }
+  "@friendsInviteBody": { "placeholders": { "code": { "type": "String" } } },
+  "groupsTitle": "GRUPOS",
+  "groupsEmpty": "Crea un grupo para entrenar juntos.",
+  "groupsNewTitle": "Nuevo grupo",
+  "groupsNameHint": "Nombre del grupo",
+  "groupsRoster": "Invitar amigos",
+  "groupsNoFriendsHint": "Añade amigos antes de poder invitarlos a un grupo.",
+  "groupsMembersLabel": "miembros",
+  "groupsCreate": "CREAR",
+  "groupsCreatedToast": "Grupo creado."
 }

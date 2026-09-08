@@ -2094,4 +2094,31 @@ class AppLocalizationsZh extends AppLocalizations {
   String friendsInviteBody(String code) {
     return 'Join me on GymMane! My invite code is $code';
   }
+
+  @override
+  String get groupsTitle => 'GROUPS';
+
+  @override
+  String get groupsEmpty => 'Create a group to train together.';
+
+  @override
+  String get groupsNewTitle => 'New group';
+
+  @override
+  String get groupsNameHint => 'Group name';
+
+  @override
+  String get groupsRoster => 'Invite friends';
+
+  @override
+  String get groupsNoFriendsHint => 'Add friends first before you can invite them to a group.';
+
+  @override
+  String get groupsMembersLabel => 'members';
+
+  @override
+  String get groupsCreate => 'CREATE';
+
+  @override
+  String get groupsCreatedToast => 'Group created.';
 }

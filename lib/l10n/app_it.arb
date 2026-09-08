@@ -733,5 +733,14 @@
   "friendsSelfToast": "Questo è il tuo codice invito.",
   "friendsMissingCode": "Inserisci un codice invito per aggiungere un amico.",
   "friendsInviteBody": "Unisciti a GymMane! Il mio codice invito è {code}",
-  "@friendsInviteBody": { "placeholders": { "code": { "type": "String" } } }
+  "@friendsInviteBody": { "placeholders": { "code": { "type": "String" } } },
+  "groupsTitle": "GRUPPI",
+  "groupsEmpty": "Crea un gruppo per allenarti insieme.",
+  "groupsNewTitle": "Nuovo gruppo",
+  "groupsNameHint": "Nome del gruppo",
+  "groupsRoster": "Invita amici",
+  "groupsNoFriendsHint": "Aggiungi amici prima di poterli invitare in un gruppo.",
+  "groupsMembersLabel": "membri",
+  "groupsCreate": "CREA",
+  "groupsCreatedToast": "Gruppo creato."
 }
