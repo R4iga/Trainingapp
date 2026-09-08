@@ -3664,6 +3664,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'IMPORT'**
   String get importAction;
+
+  /// No description provided for @equipmentNav.
+  ///
+  /// In en, this message translates to:
+  /// **'Equipment'**
+  String get equipmentNav;
+
+  /// No description provided for @equipmentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'MY EQUIPMENT'**
+  String get equipmentTitle;
+
+  /// No description provided for @equipmentStatExercises.
+  ///
+  /// In en, this message translates to:
+  /// **'exercises'**
+  String get equipmentStatExercises;
+
+  /// No description provided for @equipmentStatGear.
+  ///
+  /// In en, this message translates to:
+  /// **'gear'**
+  String get equipmentStatGear;
+
+  /// No description provided for @equipmentStatCoverage.
+  ///
+  /// In en, this message translates to:
+  /// **'coverage'**
+  String get equipmentStatCoverage;
+
+  /// No description provided for @equipmentPresetLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'START FROM A PRESET'**
+  String get equipmentPresetLabel;
+
+  /// No description provided for @equipmentYourGear.
+  ///
+  /// In en, this message translates to:
+  /// **'YOUR GEAR'**
+  String get equipmentYourGear;
+
+  /// No description provided for @equipmentCoverageLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'LIBRARY COVERAGE'**
+  String get equipmentCoverageLabel;
+
+  /// No description provided for @equipmentSuggestedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'SUGGESTED SPLIT'**
+  String get equipmentSuggestedLabel;
+
+  /// No description provided for @equipmentCoverageText.
+  ///
+  /// In en, this message translates to:
+  /// **'{n}% of the exercise library works with your setup'**
+  String equipmentCoverageText(int n);
+
+  /// No description provided for @equipmentPresetHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Home setup'**
+  String get equipmentPresetHome;
+
+  /// No description provided for @equipmentPresetFullGym.
+  ///
+  /// In en, this message translates to:
+  /// **'Full gym'**
+  String get equipmentPresetFullGym;
+
+  /// No description provided for @equipmentPresetMinimal.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimal (no bench)'**
+  String get equipmentPresetMinimal;
+
+  /// No description provided for @equipmentNoSuggestions.
+  ///
+  /// In en, this message translates to:
+  /// **'Add some gear to see suggested workouts.'**
+  String get equipmentNoSuggestions;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

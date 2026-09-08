@@ -649,5 +649,20 @@
   "importCodePreview": "¿Importar este plan?",
   "planNotFound": "No se encontró ningún plan con ese código.",
   "planExport": "EXPORTAR",
-  "importAction": "IMPORTAR"
+  "importAction": "IMPORTAR",
+  "equipmentNav": "Equipamiento",
+  "equipmentTitle": "MI EQUIPAMIENTO",
+  "equipmentStatExercises": "ejercicios",
+  "equipmentStatGear": "equipos",
+  "equipmentStatCoverage": "cobertura",
+  "equipmentPresetLabel": "EMPIEZA POR UN AJUSTE",
+  "equipmentYourGear": "TU EQUIPAMIENTO",
+  "equipmentCoverageLabel": "COBERTURA DE LA BIBLIOTECA",
+  "equipmentSuggestedLabel": "RUTINA SUGERIDA",
+  "equipmentCoverageText": "El {n}% de la biblioteca de ejercicios funciona con tu equipamiento",
+  "@equipmentCoverageText": { "placeholders": { "n": { "type": "int" } } },
+  "equipmentPresetHome": "Sistema en casa",
+  "equipmentPresetFullGym": "Gimnasio completo",
+  "equipmentPresetMinimal": "Mínimo (sin banco)",
+  "equipmentNoSuggestions": "Añade algo de equipamiento para ver rutinas sugeridas."
 }

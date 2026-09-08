@@ -7,6 +7,7 @@ import '../screens/about_screen.dart';
 import '../screens/compare_screen.dart';
 import '../screens/exercise_detail_screen.dart';
 import '../screens/exercises_screen.dart';
+import '../screens/equipment_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/measures_screen.dart';
 import '../screens/note_edit_screen.dart';
@@ -163,6 +164,8 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
         return MeasuresScreen();
       case 'places':
         return PlacesScreen();
+      case 'equipment':
+        return const EquipmentScreen();
       case 'timeline':
         return TimelineScreen();
       case 'compare':

@@ -2034,4 +2034,48 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get importAction => 'IMPORTA';
+
+  @override
+  String get equipmentNav => 'Attrezzatura';
+
+  @override
+  String get equipmentTitle => 'LA MIA ATTREZZATURA';
+
+  @override
+  String get equipmentStatExercises => 'esercizi';
+
+  @override
+  String get equipmentStatGear => 'attrezzi';
+
+  @override
+  String get equipmentStatCoverage => 'copertura';
+
+  @override
+  String get equipmentPresetLabel => 'PARTI DA UN PRESET';
+
+  @override
+  String get equipmentYourGear => 'LA TUA ATTREZZATURA';
+
+  @override
+  String get equipmentCoverageLabel => 'COPERTURA BIBLIOTECA';
+
+  @override
+  String get equipmentSuggestedLabel => 'SPLIT SUGGERITO';
+
+  @override
+  String equipmentCoverageText(int n) {
+    return 'il $n% della biblioteca esercizi funziona con ciò che hai';
+  }
+
+  @override
+  String get equipmentPresetHome => 'Sistema a casa';
+
+  @override
+  String get equipmentPresetFullGym => 'Palestra completa';
+
+  @override
+  String get equipmentPresetMinimal => 'Minimo (niente panca)';
+
+  @override
+  String get equipmentNoSuggestions => 'Aggiungi attrezzatura per vedere gli allenamenti suggeriti.';
 }

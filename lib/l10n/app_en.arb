@@ -697,5 +697,20 @@
   "importCodePreview": "Import this plan?",
   "planNotFound": "No plan found for that code.",
   "planExport": "EXPORT",
-  "importAction": "IMPORT"
+  "importAction": "IMPORT",
+  "equipmentNav": "Equipment",
+  "equipmentTitle": "MY EQUIPMENT",
+  "equipmentStatExercises": "exercises",
+  "equipmentStatGear": "gear",
+  "equipmentStatCoverage": "coverage",
+  "equipmentPresetLabel": "START FROM A PRESET",
+  "equipmentYourGear": "YOUR GEAR",
+  "equipmentCoverageLabel": "LIBRARY COVERAGE",
+  "equipmentSuggestedLabel": "SUGGESTED SPLIT",
+  "equipmentCoverageText": "{n}% of the exercise library works with your setup",
+  "@equipmentCoverageText": { "placeholders": { "n": { "type": "int" } } },
+  "equipmentPresetHome": "Home setup",
+  "equipmentPresetFullGym": "Full gym",
+  "equipmentPresetMinimal": "Minimal (no bench)",
+  "equipmentNoSuggestions": "Add some gear to see suggested workouts."
 }

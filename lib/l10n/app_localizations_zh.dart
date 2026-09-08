@@ -1989,4 +1989,48 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get importAction => 'IMPORT';
+
+  @override
+  String get equipmentNav => 'Equipment';
+
+  @override
+  String get equipmentTitle => 'MY EQUIPMENT';
+
+  @override
+  String get equipmentStatExercises => 'exercises';
+
+  @override
+  String get equipmentStatGear => 'gear';
+
+  @override
+  String get equipmentStatCoverage => 'coverage';
+
+  @override
+  String get equipmentPresetLabel => 'START FROM A PRESET';
+
+  @override
+  String get equipmentYourGear => 'YOUR GEAR';
+
+  @override
+  String get equipmentCoverageLabel => 'LIBRARY COVERAGE';
+
+  @override
+  String get equipmentSuggestedLabel => 'SUGGESTED SPLIT';
+
+  @override
+  String equipmentCoverageText(int n) {
+    return '$n% of the exercise library works with your setup';
+  }
+
+  @override
+  String get equipmentPresetHome => 'Home setup';
+
+  @override
+  String get equipmentPresetFullGym => 'Full gym';
+
+  @override
+  String get equipmentPresetMinimal => 'Minimal (no bench)';
+
+  @override
+  String get equipmentNoSuggestions => 'Add some gear to see suggested workouts.';
 }

@@ -39,9 +39,10 @@ part 'stats_state.dart';
 part 'timeline_state.dart';
 part 'tools_state.dart';
 part 'workout_state.dart';
+part 'equipment_state.dart';
 
 class FitState extends FitCore
-    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState {
+    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState, EquipmentState {
   void loadFromStore() {
     final data = Store.instance.load();
     _loading = true;
@@ -72,6 +73,9 @@ class FitState extends FitCore
         ..addAll(((data['favorites'] as Map?) ?? {}).map((k, v) => MapEntry(k as String, v as bool)));
       _loadNotes(data);
       _loadPlaces(data);
+      userEquipment
+        ..clear()
+        ..addAll(((data['userEquipment'] as List?) ?? const []).cast<String>());
       checkins
         ..clear()
         ..addAll(((data['checkins'] as List?) ?? []).cast<String>());
@@ -251,6 +255,7 @@ class FitState extends FitCore
         'favorites': favorites,
         'notes': notes.map((n) => n.toJson()).toList(),
         'places': places.map((p) => p.toJson()).toList(),
+        'userEquipment': userEquipment.toList(),
         'place': activePlaceId,
         'checkins': checkins.toList(),
         'routines': routines.map((r) => r.toJson()).toList(),
@@ -294,6 +299,7 @@ class FitState extends FitCore
     notes.clear();
     places.clear();
     activePlaceId = '';
+    userEquipment.clear();
     checkins.clear();
     routines.clear();
     weeklyPlan.clear();
@@ -348,6 +354,9 @@ class FitState extends FitCore
       ..clear()
       ..addAll(((map['favorites'] as Map?) ?? {}).map((k, v) => MapEntry(k as String, v as bool)));
     _loadPlaces(map);
+    userEquipment
+      ..clear()
+      ..addAll(((map['userEquipment'] as List?) ?? const []).cast<String>());
     _loadNotes(map);
     if (restoredNoteMedia != null) _remapNoteMedia(restoredNoteMedia);
     checkins
@@ -488,6 +497,8 @@ class FitState extends FitCore
         backFromMeasures();
       case 'places':
         backFromPlaces();
+      case 'equipment':
+        backFromEquipment();
       case 'timeline':
         backFromTimeline();
       case 'compare':

@@ -697,5 +697,20 @@
   "importCodePreview": "Importare questo piano?",
   "planNotFound": "Nessun piano trovato per quel codice.",
   "planExport": "ESPORTA",
-  "importAction": "IMPORTA"
+  "importAction": "IMPORTA",
+  "equipmentNav": "Attrezzatura",
+  "equipmentTitle": "LA MIA ATTREZZATURA",
+  "equipmentStatExercises": "esercizi",
+  "equipmentStatGear": "attrezzi",
+  "equipmentStatCoverage": "copertura",
+  "equipmentPresetLabel": "PARTI DA UN PRESET",
+  "equipmentYourGear": "LA TUA ATTREZZATURA",
+  "equipmentCoverageLabel": "COPERTURA BIBLIOTECA",
+  "equipmentSuggestedLabel": "SPLIT SUGGERITO",
+  "equipmentCoverageText": "il {n}% della biblioteca esercizi funziona con ciò che hai",
+  "@equipmentCoverageText": { "placeholders": { "n": { "type": "int" } } },
+  "equipmentPresetHome": "Sistema a casa",
+  "equipmentPresetFullGym": "Palestra completa",
+  "equipmentPresetMinimal": "Minimo (niente panca)",
+  "equipmentNoSuggestions": "Aggiungi attrezzatura per vedere gli allenamenti suggeriti."
 }
