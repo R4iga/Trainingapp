@@ -156,5 +156,7 @@ void main() {
       todaySets: 0,
     );
     expect(data.lifts.length, 5);
+    expect(data.lifts.first.weightLabel, isNull, reason: 'sin historial: sin peso sugerido');
+    expect(data.lifts.first.lastReps, 0);
   });
 }
