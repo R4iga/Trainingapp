@@ -165,6 +165,8 @@ class SettingsScreen extends StatelessWidget {
                 (PhosphorIconsRegular.squaresFour, t.addActivityWidget, () => _addWidget(context, 'HeatmapWidgetProvider')),
                 (PhosphorIconsRegular.chartBar, t.addStatsWidget, () => _addWidget(context, 'StatsWidgetProvider')),
                 (PhosphorIconsRegular.person, t.addBodyWidget, () => _addWidget(context, 'BodyWidgetProvider')),
+                (PhosphorIconsRegular.squaresFour, t.addTodayWidget, () => _addWidget(context, 'TodayWidgetProvider')),
+                (PhosphorIconsRegular.arrowRight, t.addNextUpWidget, () => _addWidget(context, 'NextUpWidgetProvider')),
               ]),
               const SizedBox(height: 22),
             ],
