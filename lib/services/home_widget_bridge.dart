@@ -60,7 +60,7 @@ class HomeWidgetBridge {
         pixelRatio: 3,
       );
       final sessionDay = fit.activeSessionDay();
-      final liveDone = fit.session == null
+      final liveDone = fit.session == null || fit.session!.complete
           ? 0
           : fit.session!.exercises.fold(
               0,
