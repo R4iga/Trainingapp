@@ -49,3 +49,82 @@ double plateFor(String units, double weight) {
 
 /// Round [weight] up to the nearest multiple of [plate].
 double roundUpTo(double weight, double plate) => (weight / plate).ceil() * plate;
+
+/// The normal (non warmup/drop/failure) sets of the most recent session that
+/// contains [exerciseId]. The caller decides the display-unit scale.
+List<LoggedSet> priorWorkingSets(List<LoggedSession> sessions, String exerciseId) {
+  final sorted = [...sessions]..sort((a, b) => b.date.compareTo(a.date));
+  for (final s in sorted) {
+    for (final e in s.exercises) {
+      if (e.id == exerciseId) {
+        return e.sets.where((s) => s.kind == SetKind.normal).toList();
+      }
+    }
+  }
+  return const [];
+}
+
+/// Reps/weight of the heaviest working set in [sets] (empty-safe returns 0/0).
+({int reps, double weight}) heaviestWorkingSet(List<LoggedSet> sets) {
+  var reps = 0, weight = 0.0;
+  for (final s in sets) {
+    if (s.weight > weight || (s.weight == weight && s.reps > reps)) {
+      weight = s.weight;
+      reps = s.reps;
+    }
+  }
+  return (reps: reps, weight: weight);
+}
+
+/// Double-progression decision for the next working set.
+///
+/// [lastWorkingSets] are normal working sets from the latest session; the
+/// caller supplies a rep [targetMin]..[targetMax] and a [plate] increment.
+/// All weights are in display units.
+ProgressionHint nextSetHint({
+  required List<LoggedSet> lastWorkingSets,
+  required int targetMin,
+  required int targetMax,
+  required double plate,
+}) {
+  if (lastWorkingSets.isEmpty) {
+    return ProgressionHint(
+      verdict: ProgressionVerdict.firstTime,
+      targetMin: targetMin,
+      targetMax: targetMax,
+    );
+  }
+
+  final heaviest = heaviestWorkingSet(lastWorkingSets);
+  final everyAtTarget = lastWorkingSets.every((s) => s.reps >= targetMax);
+  final anyMissed = lastWorkingSets.any((s) => s.reps < targetMin);
+
+  if (everyAtTarget) {
+    return ProgressionHint(
+      verdict: ProgressionVerdict.bump,
+      targetMin: targetMin,
+      targetMax: targetMax,
+      suggestedWeight: roundUpTo(heaviest.weight + plate, plate),
+      lastMaxWeight: heaviest.weight,
+      lastBestReps: heaviest.reps,
+    );
+  }
+  if (anyMissed) {
+    return ProgressionHint(
+      verdict: ProgressionVerdict.reduce,
+      targetMin: targetMin,
+      targetMax: targetMax,
+      suggestedWeight: math.max(0.0, roundUpTo(heaviest.weight - plate, plate)),
+      lastMaxWeight: heaviest.weight,
+      lastBestReps: heaviest.reps,
+    );
+  }
+  return ProgressionHint(
+    verdict: ProgressionVerdict.hold,
+    targetMin: targetMin,
+    targetMax: targetMax,
+    suggestedWeight: heaviest.weight,
+    lastMaxWeight: heaviest.weight,
+    lastBestReps: heaviest.reps,
+  );
+}

@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:gymmane/models/workout.dart';
 import 'package:gymmane/services/smart_progression.dart';
 
 void main() {
@@ -56,6 +57,84 @@ void main() {
       expect(hint.suggestedWeight, 32.5);
       expect(hint.lastMaxWeight, 30.0);
       expect(hint.lastBestReps, 8);
+    });
+  });
+
+  group('priorWorkingSets', () {
+    test('returns only the normal sets of the LATEST session for the exercise', () {
+      final sessions = [
+        LoggedSession(DateTime(2026, 9, 1), 1000, [
+          LoggedExercise('a', 'A', 'chest', [LoggedSet(8, 40)]),
+        ]),
+        LoggedSession(DateTime(2026, 9, 2), 1000, [
+          LoggedExercise('a', 'A', 'chest', [
+            LoggedSet(9, 45),
+            LoggedSet(8, 42.5, kind: SetKind.warmup),
+            LoggedSet(7, 47.5, kind: SetKind.drop),
+          ]),
+        ]),
+      ];
+      final sets = priorWorkingSets(sessions, 'a');
+      expect(sets.map((s) => s.weight), [45.0], reason: 'solo la sesión más reciente y solo sets normales');
+    });
+
+    test('returns empty when the exercise was never logged', () {
+      expect(priorWorkingSets([], 'a'), isEmpty);
+      expect(priorWorkingSets([LoggedSession(DateTime(2026, 9, 1), 1000, [])], 'a'), isEmpty);
+    });
+  });
+
+  group('nextSetHint', () {
+    test('firstTime when no working sets exist', () {
+      final h = nextSetHint(lastWorkingSets: [], targetMin: 8, targetMax: 10, plate: 2.5);
+      expect(h.verdict, ProgressionVerdict.firstTime);
+      expect(h.hasSuggestion, isFalse);
+      expect(h.suggestedWeight, isNull);
+    });
+
+    test('bump when every set reached the top of the range', () {
+      final h = nextSetHint(
+        lastWorkingSets: [LoggedSet(10, 40), LoggedSet(11, 40)],
+        targetMin: 8,
+        targetMax: 10,
+        plate: 2.5,
+      );
+      expect(h.verdict, ProgressionVerdict.bump);
+      expect(h.suggestedWeight, 42.5);
+      expect(h.lastBestReps, 11);
+    });
+
+    test('reduce when a set fell below the bottom of the range', () {
+      final h = nextSetHint(
+        lastWorkingSets: [LoggedSet(9, 40), LoggedSet(5, 40)],
+        targetMin: 8,
+        targetMax: 10,
+        plate: 2.5,
+      );
+      expect(h.verdict, ProgressionVerdict.reduce);
+      expect(h.suggestedWeight, 37.5);
+    });
+
+    test('reduce never goes below zero', () {
+      final h = nextSetHint(
+        lastWorkingSets: [LoggedSet(5, 1)],
+        targetMin: 8,
+        targetMax: 10,
+        plate: 2.5,
+      );
+      expect(h.suggestedWeight, 0);
+    });
+
+    test('hold when every set is inside the range but none hit the top', () {
+      final h = nextSetHint(
+        lastWorkingSets: [LoggedSet(9, 40), LoggedSet(10, 40)],
+        targetMin: 8,
+        targetMax: 12,
+        plate: 2.5,
+      );
+      expect(h.verdict, ProgressionVerdict.hold);
+      expect(h.suggestedWeight, 40, reason: 'mantiene el último peso de trabajo');
+      expect(h.lastBestReps, 10);
     });
   });
 }
