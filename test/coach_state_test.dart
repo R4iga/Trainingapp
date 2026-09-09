@@ -56,4 +56,45 @@ void main() {
     fit.startSession();
     expect(fit.session!.planId, isNull);
   });
+
+  test('plan exercise range drives the suggestion target', () {
+    logBench(10, 60);
+    fit.plans.add(twoDayPlan());
+    fit.startPlanDay(fit.plans.last, 0);
+    final hint = fit.nextSetHints()['EIeI8Vf']!;
+    expect(hint.verdict, ProgressionVerdict.bump);
+    expect(hint.targetMin, 8);
+    expect(hint.targetMax, 10, reason: 'usa el rango del plan, no el historial');
+    expect(hint.suggestedWeight, 62.5);
+  });
+
+  test('freestyle workouts fall back to the last heavy reps', () {
+    logBench(8, 60);
+    fit.startWorkout();
+    fit.toggleMuscle('chest');
+    fit.trainContinue();
+    fit.startSession();
+    final hint = fit.nextSetHints()['EIeI8Vf']!;
+    expect(hint.targetMin, 8);
+    expect(hint.targetMax, 8, reason: 'sin plan: min = max = reps del set más pesado');
+    expect(hint.verdict, ProgressionVerdict.bump);
+  });
+
+  test('no history means no suggestion', () {
+    fit.startWorkout();
+    fit.toggleMuscle('chest');
+    fit.trainContinue();
+    fit.startSession();
+    expect(fit.nextSetHints()['EIeI8Vf'], isNull);
+  });
+
+  test('reps-only exercises are skipped', () {
+    logBench(10, 60);
+    fit.repsOnly.add('EIeI8Vf');
+    fit.startWorkout();
+    fit.toggleMuscle('chest');
+    fit.trainContinue();
+    fit.startSession();
+    expect(fit.nextSetHints().containsKey('EIeI8Vf'), isFalse);
+  });
 }

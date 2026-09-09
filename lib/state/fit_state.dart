@@ -29,6 +29,7 @@ import '../services/local_store.dart';
 import '../services/media_store.dart';
 import '../services/progress_reminder.dart';
 import '../services/rest_alarm.dart';
+import '../services/smart_progression.dart';
 import '../services/workout_import.dart';
 import '../services/workout_generator.dart';
 
@@ -49,9 +50,10 @@ part 'social_state.dart';
 part 'groups_state.dart';
 part 'feed_state.dart';
 part 'generator_state.dart';
+part 'coach_state.dart';
 
 class FitState extends FitCore
-    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState, EquipmentState, SocialState, GroupsState, FeedState, GeneratorState {
+    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState, EquipmentState, SocialState, GroupsState, FeedState, GeneratorState, CoachState {
   void loadFromStore() {
     final data = Store.instance.load();
     _loading = true;
