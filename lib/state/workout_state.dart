@@ -161,6 +161,8 @@ mixin WorkoutState on FitCore, SettingsState, LibraryState, PlacesState, StatsSt
     _elapsedBefore = 0;
     sessionPaused = false;
     _startTicking();
+    s.planId = plan.id;
+    s.planDayIndex = dayIndex;
     session = s;
     route = 'session';
     persistNow();

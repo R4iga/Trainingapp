@@ -55,6 +55,8 @@ class WorkoutSession {
   int? summaryVolume;
   int? summarySets;
   int? summaryDuration;
+  String? planId;
+  int? planDayIndex;
 
   Map<String, dynamic> toJson() => {
         'ex': exercises.map((e) => e.toJson()).toList(),
@@ -64,6 +66,8 @@ class WorkoutSession {
         'sv': summaryVolume,
         'ss': summarySets,
         'sd': summaryDuration,
+        if (planId != null) 'pl': planId,
+        if (planDayIndex != null) 'pd': planDayIndex,
       };
 
   factory WorkoutSession.fromJson(Map<String, dynamic> j) => WorkoutSession()
@@ -74,5 +78,7 @@ class WorkoutSession {
     ..loggedAt = DateTime.tryParse((j['at'] as String?) ?? '')
     ..summaryVolume = (j['sv'] as num?)?.toInt()
     ..summarySets = (j['ss'] as num?)?.toInt()
-    ..summaryDuration = (j['sd'] as num?)?.toInt();
+    ..summaryDuration = (j['sd'] as num?)?.toInt()
+    ..planId = j['pl'] as String?
+    ..planDayIndex = (j['pd'] as num?)?.toInt();
 }
