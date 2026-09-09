@@ -107,6 +107,7 @@ mixin PlansState on FitCore, LibraryState {
     plans.add(WorkoutPlan(
       id: id,
       name: name.trim(),
+      days: <WorkoutPlanDay>[],
       createdAt: now,
       updatedAt: now,
     ));
@@ -146,6 +147,7 @@ mixin PlansState on FitCore, LibraryState {
     return WorkoutPlan(
       id: 'p${now.microsecondsSinceEpoch}',
       name: 'Copy',
+      days: <WorkoutPlanDay>[],
       createdAt: now,
       updatedAt: now,
     );
