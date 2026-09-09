@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../l10n/l10n.dart';
+import '../services/today_widget.dart';
 import '../state/fit_state.dart';
 import '../theme/app_colors.dart';
 import 'body_map.dart';
@@ -308,6 +309,182 @@ class BodyWidgetView extends StatelessWidget {
             child: Center(
               child: BodyHeatArt(gc: gc, intensity: intensity, width: artW),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class TodayWidgetView extends StatelessWidget {
+  const TodayWidgetView({
+    super.key,
+    required this.gc,
+    required this.data,
+    this.size = const Size(320, 230),
+  });
+
+  final GymColors gc;
+  final TodayCardData data;
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    String _daysOrPlan() {
+      if (data.live) return data.dayName ?? t.wtToday;
+      if (data.rest) return t.wtRest;
+      return data.dayName ?? t.wtNoPlan;
+    }
+
+    return Container(
+      width: size.width,
+      height: size.height,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: gc.bgRaised,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: gc.border, width: _kBorder),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Flexible(
+                child: Text(t.wtToday,
+                    maxLines: 1,
+                    overflow: TextOverflow.clip,
+                    softWrap: false,
+                    style: TextStyle(
+                        fontFamily: _kDisplay,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 2,
+                        color: gc.text)),
+              ),
+              const Spacer(),
+              Icon(Icons.local_fire_department_rounded, size: 14, color: gc.accent),
+              const SizedBox(width: 3),
+              Text('${data.streak}',
+                  style: TextStyle(
+                      fontFamily: _kDisplay, fontSize: 13, fontWeight: FontWeight.w700, color: gc.accent)),
+              const SizedBox(width: 12),
+              Text('${data.todaySets} ${t.wtSets}',
+                  style: TextStyle(fontFamily: _kBody, fontSize: 10.5, color: gc.textSecondary)),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Text(_daysOrPlan(),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                  fontFamily: _kDisplay, fontSize: 16, fontWeight: FontWeight.w700, color: gc.text)),
+          const SizedBox(height: 10),
+          Expanded(
+            child: data.lifts.isEmpty
+                ? Center(
+                    child: Text('—', style: TextStyle(fontFamily: _kBody, fontSize: 22, color: gc.textTertiary)),
+                  )
+                : Column(
+                    children: [
+                      for (final row in data.lifts) _liftRow(gc, row),
+                    ],
+                  ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _liftRow(GymColors gc, LiftHintRow row) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3),
+      child: Row(
+        children: [
+          Expanded(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: Text(row.name,
+                  maxLines: 1,
+                  softWrap: false,
+                  style: TextStyle(fontFamily: _kBody, fontSize: 11, color: gc.text)),
+            ),
+          ),
+          const SizedBox(width: 8),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(row.weightLabel ?? '—',
+                style: TextStyle(fontFamily: _kDisplay, fontSize: 13, fontWeight: FontWeight.w700, color: gc.ember)),
+          ),
+          const SizedBox(width: 8),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(row.repLabel,
+                style: TextStyle(fontFamily: _kBody, fontSize: 11, color: gc.textSecondary)),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class NextUpWidgetView extends StatelessWidget {
+  const NextUpWidgetView({
+    super.key,
+    required this.gc,
+    required this.data,
+    this.size = const Size(160, 155),
+  });
+
+  final GymColors gc;
+  final TodayCardData data;
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    final lift = data.lifts.isEmpty ? null : data.lifts.first;
+
+    return Container(
+      width: size.width,
+      height: size.height,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: gc.bgRaised,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: gc.border, width: _kBorder),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(t.wtNextUp,
+              style: TextStyle(
+                  fontFamily: _kDisplay,
+                  fontSize: 11,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 2,
+                  color: gc.textSecondary)),
+          const Spacer(),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: Alignment.centerLeft,
+            child: Text(lift?.weightLabel ?? '—',
+                style: TextStyle(
+                    fontFamily: _kDisplay, fontSize: 34, height: 1, fontWeight: FontWeight.w700, color: gc.ember)),
+          ),
+          const SizedBox(height: 4),
+          Text(lift?.name ?? '',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(fontFamily: _kBody, fontSize: 13, color: gc.text)),
+          const SizedBox(height: 2),
+          Text(
+            data.rest
+                ? t.wtRest
+                : (data.dayName ?? t.wtNoPlan),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(fontFamily: _kBody, fontSize: 10.5, color: gc.textSecondary),
           ),
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:gymmane/services/today_widget.dart';
 import 'package:gymmane/theme/app_colors.dart';
 import 'package:gymmane/widgets/home_widget_views.dart';
 
@@ -25,11 +26,57 @@ void main() {
             days: 7,
             intensity: const {'chest': 1.0, 'back': 0.5, 'quads': 0.1},
           ));
+      await draw(
+        tester,
+        TodayWidgetView(
+          gc: gc,
+          data: const TodayCardData(
+            live: false,
+            rest: false,
+            dayName: 'Push',
+            streak: 12,
+            todaySets: 6,
+            lifts: [
+              LiftHintRow(name: 'Bench', weightLabel: '62.5 kg', repLabel: '8-10', lastReps: 10),
+              LiftHintRow(name: 'Shoulder Press', weightLabel: '40 kg', repLabel: '8', lastReps: 8),
+            ],
+          ),
+        ),
+      );
+      await draw(
+        tester,
+        NextUpWidgetView(
+          gc: gc,
+          data: const TodayCardData(
+            live: false,
+            rest: false,
+            dayName: 'Push',
+            streak: 0,
+            todaySets: 0,
+            lifts: [
+              LiftHintRow(name: 'Bench', weightLabel: '62.5 kg', repLabel: '8-10', lastReps: 10),
+            ],
+          ),
+        ),
+      );
     });
   }
 
   testWidgets('the muscle map widget survives an empty history', (tester) async {
     await draw(tester,
         const BodyWidgetView(gc: GymColors.dark, days: 7, intensity: {}));
+  });
+
+  testWidgets('the today widgets hold up against empty data', (tester) async {
+    const empty = TodayCardData(
+      live: false,
+      rest: false,
+      dayName: null,
+      streak: 0,
+      todaySets: 0,
+      lifts: [],
+    );
+    await draw(tester, const TodayWidgetView(gc: GymColors.dark, data: empty));
+    await draw(tester, const NextUpWidgetView(gc: GymColors.dark, data: empty));
   });
 }
