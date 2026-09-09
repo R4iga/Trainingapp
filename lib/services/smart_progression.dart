@@ -57,7 +57,7 @@ List<LoggedSet> priorWorkingSets(List<LoggedSession> sessions, String exerciseId
   for (final s in sorted) {
     for (final e in s.exercises) {
       if (e.id == exerciseId) {
-        return e.sets.where((s) => s.kind == SetKind.normal).toList();
+        return e.sets.where((ls) => ls.kind == SetKind.normal).toList();
       }
     }
   }

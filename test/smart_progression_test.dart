@@ -84,6 +84,26 @@ void main() {
     });
   });
 
+  group('heaviestWorkingSet', () {
+    test('empty returns zero reps and weight', () {
+      final h = heaviestWorkingSet([]);
+      expect(h.reps, 0);
+      expect(h.weight, 0);
+    });
+
+    test('tie on weight goes to the set with higher reps', () {
+      final h = heaviestWorkingSet([LoggedSet(9, 40), LoggedSet(10, 40)]);
+      expect(h.reps, 10);
+      expect(h.weight, 40);
+    });
+
+    test('heavier weight wins regardless of reps', () {
+      final h = heaviestWorkingSet([LoggedSet(5, 60), LoggedSet(8, 55)]);
+      expect(h.reps, 5);
+      expect(h.weight, 60);
+    });
+  });
+
   group('nextSetHint', () {
     test('firstTime when no working sets exist', () {
       final h = nextSetHint(lastWorkingSets: [], targetMin: 8, targetMax: 10, plate: 2.5);
