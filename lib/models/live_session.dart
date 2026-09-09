@@ -57,6 +57,7 @@ class WorkoutSession {
   int? summaryDuration;
   /// Plan the session was started from (nullable for freestyle workouts).
   String? planId;
+  /// Day index within [planId] (0-based, nullable for freestyle workouts).
   int? planDayIndex;
 
   Map<String, dynamic> toJson() => {
