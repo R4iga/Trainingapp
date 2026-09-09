@@ -6,6 +6,7 @@ import '../l10n/l10n.dart';
 import '../models/exercise.dart';
 import '../models/live_session.dart';
 import '../models/workout.dart';
+import '../services/smart_progression.dart';
 import '../state/fit_state.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_theme.dart';
@@ -177,7 +178,10 @@ class SessionScreen extends StatelessWidget {
               ),
               for (int j = 0; j < (ex?.sets.length ?? 0); j++)
                 _setRow(gc, exIdx, j, ex!.sets[j], repsOnly),
-              if (!repsOnly && ex != null) _plateRow(gc, ex),
+              if (!repsOnly && ex != null) ...[
+                _plateRow(gc, ex),
+                _hintRow(gc, exIdx, ex),
+              ],
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: _rowPad),
@@ -444,6 +448,54 @@ class SessionScreen extends StatelessWidget {
                 style: AppTheme.s(11.5, color: gc.textTertiary)),
           ),
         ],
+      ),
+    );
+  }
+
+  String _targetLabel(int min, int max) => min == max ? '$min' : '$min-$max';
+
+  Widget _hintRow(GymColors gc, int exIdx, SessionExercise ex) {
+    final h = fit.nextSetHints()[ex.id];
+    if (h == null || !h.hasSuggestion || h.suggestedWeight == null) {
+      return const SizedBox.shrink();
+    }
+    final w = (h.suggestedWeight! * 10).round() / 10;
+    final weight = '${fmt(w)} ${fit.units.toUpperCase()}';
+    final reps = _targetLabel(h.targetMin, h.targetMax);
+    final last = h.lastBestReps ?? 0;
+    final label = switch (h.verdict) {
+      ProgressionVerdict.bump => t.coachUp(weight, reps, last),
+      ProgressionVerdict.reduce => t.coachDown(weight, reps, last),
+      _ => t.coachHold(weight, reps),
+    };
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(_rowPad, 8, _rowPad, 0),
+      child: Semantics(
+        button: true,
+        label: label,
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () => fit.applyHint(exIdx),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+            decoration: BoxDecoration(
+              color: gc.bgRaised2,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              children: [
+                Icon(PhosphorIconsRegular.star, size: 13, color: gc.ember),
+                const SizedBox(width: 7),
+                Expanded(
+                  child: Text(label,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppTheme.s(11.5, weight: FontWeight.w600, color: gc.text)),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
