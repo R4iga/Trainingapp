@@ -25,6 +25,8 @@ class PlansScreen extends StatelessWidget {
           children: [
             ScreenHeader(title: t.plans, onBack: fit.backFromPlans, titleSize: 22),
             const SizedBox(height: 14),
+            _generatorCard(gc),
+            const SizedBox(height: 12),
             PrimaryButton(
               label: t.browseLibrary,
               icon: Ic.layers,
@@ -67,6 +69,57 @@ class PlansScreen extends StatelessWidget {
           Text(t.emptyPlans,
               textAlign: TextAlign.center, style: AppTheme.s(13, color: gc.textSecondary)),
         ],
+      ),
+    );
+  }
+
+  Widget _generatorCard(GymColors gc) {
+    return GestureDetector(
+      onTap: fit.goGenerator,
+      behavior: HitTestBehavior.opaque,
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [gc.emberSoft, gc.brass.withValues(alpha: 0.18)],
+          ),
+          border: Border.all(color: gc.brass.withValues(alpha: 0.5)),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 46,
+              height: 46,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [gc.accent, gc.brass],
+                ),
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: const Icon(PhosphorIconsFill.magicWand, size: 22, color: Color(0xFF141210)),
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(t.genTitle,
+                      style: AppTheme.s(16, weight: FontWeight.w700, color: gc.text, letterSpacing: 0.3)),
+                  const SizedBox(height: 3),
+                  Text(t.genSubtitle,
+                      style: AppTheme.s(12, color: gc.textSecondary)),
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            Icon(PhosphorIconsRegular.arrowRight, size: 18, color: gc.textSecondary),
+          ],
+        ),
       ),
     );
   }

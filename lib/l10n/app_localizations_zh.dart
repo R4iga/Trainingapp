@@ -2035,6 +2035,143 @@ class AppLocalizationsZh extends AppLocalizations {
   String get equipmentNoSuggestions => 'Add some gear to see suggested workouts.';
 
   @override
+  String get genTitle => '生成训练计划';
+
+  @override
+  String get genSubtitle => '选择你的肌肉和偏好——我们为你生成一整周的计划。';
+
+  @override
+  String get genGoal => '目标';
+
+  @override
+  String get genExperience => '经验';
+
+  @override
+  String get genLength => '训练时长';
+
+  @override
+  String get genEquipment => '器械';
+
+  @override
+  String get genEquipFullGym => '完整健身房';
+
+  @override
+  String get genEquipBasic => '基础健身房';
+
+  @override
+  String get genEquipHome => '居家';
+
+  @override
+  String get genPreset => '预设模板';
+
+  @override
+  String get genStylePpl => '推拉腿';
+
+  @override
+  String get genStyleUpperLower => '上肢 / 下肢';
+
+  @override
+  String get genStyleFullBody => '全身';
+
+  @override
+  String get genStyleBro => '单项分练';
+
+  @override
+  String get genStyleArnold => '阿诺德式';
+
+  @override
+  String get genStyleCustom => '自定义';
+
+  @override
+  String get genWeek => '你的周计划';
+
+  @override
+  String get genWeekHint => '点击某一天来选肌肉并生成训练。';
+
+  @override
+  String get genRest => '休息';
+
+  @override
+  String get genRestHint => '休息日——不生成训练。';
+
+  @override
+  String get genMusclesLabel => '肌肉';
+
+  @override
+  String get genTapMuscles => '点击选择当天要训练的肌肉。';
+
+  @override
+  String get genNoMuscles => '今天还没有选择肌肉。';
+
+  @override
+  String get genGenerateDay => '生成';
+
+  @override
+  String get genRegenerateDay => '重新生成';
+
+  @override
+  String get genClearDay => '清空';
+
+  @override
+  String get genAddMusclesFirst => '请先添加肌肉';
+
+  @override
+  String get genReplace => '替换';
+
+  @override
+  String get genRemove => '移除';
+
+  @override
+  String get genGenerateWeek => '生成整周计划';
+
+  @override
+  String get genRegenerateWeek => '重新生成整周';
+
+  @override
+  String get genClearWeek => '清空整周';
+
+  @override
+  String get genSavePlan => '保存为计划';
+
+  @override
+  String get genSavedToast => '计划已保存。';
+
+  @override
+  String get genDefaultPlanName => '生成的周计划';
+
+  @override
+  String get genMsgBuilding => '正在生成训练…';
+
+  @override
+  String get genMsgBalancing => '平衡肌肉训练量…';
+
+  @override
+  String get genMsgSelecting => '挑选动作…';
+
+  @override
+  String get genMsgFinalizing => '完善你的计划…';
+
+  @override
+  String get genLoadError => '无法生成此次训练。请尝试更换肌肉或偏好设置。';
+
+  @override
+  String genSaveHint(String goal, String difficulty) {
+    return '由 $goal · $difficulty 生成';
+  }
+
+  @override
+  String genMinutes(int n) {
+    String _temp0 = intl.Intl.pluralLogic(n, locale: localeName, other: '$n 分钟', one: '$n 分钟');
+    return '$_temp0';
+  }
+
+  @override
+  String get genGeneratedOn => '已生成';
+
+  @override
+  String get genMax => '上限';
+
+  @override
   String get profileTitle => 'PROFILE';
 
   @override

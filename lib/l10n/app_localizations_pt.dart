@@ -2077,6 +2077,143 @@ class AppLocalizationsPt extends AppLocalizations {
   String get equipmentNoSuggestions => 'Add some gear to see suggested workouts.';
 
   @override
+  String get genTitle => 'GERAR UM PLANO';
+
+  @override
+  String get genSubtitle => 'Escolha os músculos e as preferências — montamos a semana inteira para você.';
+
+  @override
+  String get genGoal => 'OBJETIVO';
+
+  @override
+  String get genExperience => 'EXPERIÊNCIA';
+
+  @override
+  String get genLength => 'DURAÇÃO';
+
+  @override
+  String get genEquipment => 'EQUIPAMENTO';
+
+  @override
+  String get genEquipFullGym => 'Academia completa';
+
+  @override
+  String get genEquipBasic => 'Academia básica';
+
+  @override
+  String get genEquipHome => 'Casa';
+
+  @override
+  String get genPreset => 'PRESET';
+
+  @override
+  String get genStylePpl => 'PPL';
+
+  @override
+  String get genStyleUpperLower => 'Superior / Inferior';
+
+  @override
+  String get genStyleFullBody => 'Corpo inteiro';
+
+  @override
+  String get genStyleBro => 'Bro Split';
+
+  @override
+  String get genStyleArnold => 'Arnold';
+
+  @override
+  String get genStyleCustom => 'Personalizado';
+
+  @override
+  String get genWeek => 'SUA SEMANA';
+
+  @override
+  String get genWeekHint => 'Toque em um dia para escolher músculos e gerar o treino.';
+
+  @override
+  String get genRest => 'Descanso';
+
+  @override
+  String get genRestHint => 'Dia de descanso — nenhum treino gerado.';
+
+  @override
+  String get genMusclesLabel => 'MÚSCULOS';
+
+  @override
+  String get genTapMuscles => 'Toque nos músculos para treinar neste dia.';
+
+  @override
+  String get genNoMuscles => 'Nenhum músculo selecionado para hoje.';
+
+  @override
+  String get genGenerateDay => 'GERAR';
+
+  @override
+  String get genRegenerateDay => 'REGENERAR';
+
+  @override
+  String get genClearDay => 'LIMPAR';
+
+  @override
+  String get genAddMusclesFirst => 'Adicione músculos primeiro';
+
+  @override
+  String get genReplace => 'Substituir';
+
+  @override
+  String get genRemove => 'Remover';
+
+  @override
+  String get genGenerateWeek => 'GERAR A SEMANA INTEIRA';
+
+  @override
+  String get genRegenerateWeek => 'REGENERAR SEMANA';
+
+  @override
+  String get genClearWeek => 'LIMPAR SEMANA';
+
+  @override
+  String get genSavePlan => 'SALVAR COMO PLANO';
+
+  @override
+  String get genSavedToast => 'Plano salvo.';
+
+  @override
+  String get genDefaultPlanName => 'Semana gerada';
+
+  @override
+  String get genMsgBuilding => 'Montando o seu treino…';
+
+  @override
+  String get genMsgBalancing => 'Equilibrando o volume muscular…';
+
+  @override
+  String get genMsgSelecting => 'Selecionando exercícios…';
+
+  @override
+  String get genMsgFinalizing => 'Finalizando o seu plano…';
+
+  @override
+  String get genLoadError => 'Não foi possível gerar este treino. Tente outros músculos ou preferências.';
+
+  @override
+  String genSaveHint(String goal, String difficulty) {
+    return 'Gerado de $goal · $difficulty';
+  }
+
+  @override
+  String genMinutes(int n) {
+    String _temp0 = intl.Intl.pluralLogic(n, locale: localeName, other: '$n min', one: '$n min');
+    return '$_temp0';
+  }
+
+  @override
+  String get genGeneratedOn => 'Gerado';
+
+  @override
+  String get genMax => 'Máx.';
+
+  @override
   String get profileTitle => 'PROFILE';
 
   @override

@@ -22,6 +22,7 @@ import '../models/progress_shot.dart';
 import '../models/workout.dart';
 import '../models/workout_plan.dart';
 import '../catalog/workout_programs.dart';
+import '../models/generator.dart';
 import '../services/alarm_store.dart';
 import '../services/exercise_match.dart';
 import '../services/local_store.dart';
@@ -29,6 +30,7 @@ import '../services/media_store.dart';
 import '../services/progress_reminder.dart';
 import '../services/rest_alarm.dart';
 import '../services/workout_import.dart';
+import '../services/workout_generator.dart';
 
 part 'fit_core.dart';
 part 'library_state.dart';
@@ -46,9 +48,10 @@ part 'equipment_state.dart';
 part 'social_state.dart';
 part 'groups_state.dart';
 part 'feed_state.dart';
+part 'generator_state.dart';
 
 class FitState extends FitCore
-    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState, EquipmentState, SocialState, GroupsState, FeedState {
+    with ToolsState, SettingsState, LibraryState, NotesState, PlacesState, MeasuresState, PlansState, TimelineState, StatsState, RoutinesState, WorkoutState, EquipmentState, SocialState, GroupsState, FeedState, GeneratorState {
   void loadFromStore() {
     final data = Store.instance.load();
     _loading = true;
@@ -117,6 +120,7 @@ class FitState extends FitCore
       _loadMedia(data);
       _loadRepsOnly(data);
       _loadExerciseRest(data);
+      _loadGenerator(data);
       sessions
         ..clear()
         ..addAll(((data['sessions'] as List?) ?? [])
@@ -295,6 +299,12 @@ class FitState extends FitCore
         'shots': shots.map((s) => s.toJson()).toList(),
         'photoEvery': photoIntervalDays,
         'bodyTl': bodyTimeline,
+        if (genMuscles.isNotEmpty)
+          'genMuscles': genMuscles.map((k, v) => MapEntry(k.toString(), v)),
+        if (genRestDays.isNotEmpty) 'genRest': genRestDays.toList(),
+        'genPrefs': genPrefs.toJson(),
+        if (genDraft != null)
+          'genDraft': genDraft!.days.map((d) => d.toJson()).toList(),
         if (session != null && !session!.complete) ...{
           'live': session!.toJson(),
           'liveStart': _runningSince?.toIso8601String(),
@@ -317,6 +327,7 @@ class FitState extends FitCore
     bodyweight.clear();
     measures.clear();
     shots.clear();
+    _resetGenerator();
     compareFromId = null;
     compareToId = null;
     notes.clear();
@@ -533,6 +544,8 @@ class FitState extends FitCore
         backFromPlans();
       case 'plan-edit':
         closePlanEdit();
+      case 'plan-generator':
+        backFromGenerator();
       case 'plan-library':
         backFromLibrary();
       case 'measures':

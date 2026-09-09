@@ -3749,6 +3749,270 @@ abstract class AppLocalizations {
   /// **'Add some gear to see suggested workouts.'**
   String get equipmentNoSuggestions;
 
+  /// No description provided for @genTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'GENERATE A PLAN'**
+  String get genTitle;
+
+  /// No description provided for @genSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick your muscles and preferences — we build a full week for you.'**
+  String get genSubtitle;
+
+  /// No description provided for @genGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'GOAL'**
+  String get genGoal;
+
+  /// No description provided for @genExperience.
+  ///
+  /// In en, this message translates to:
+  /// **'EXPERIENCE'**
+  String get genExperience;
+
+  /// No description provided for @genLength.
+  ///
+  /// In en, this message translates to:
+  /// **'WORKOUT LENGTH'**
+  String get genLength;
+
+  /// No description provided for @genEquipment.
+  ///
+  /// In en, this message translates to:
+  /// **'EQUIPMENT'**
+  String get genEquipment;
+
+  /// No description provided for @genEquipFullGym.
+  ///
+  /// In en, this message translates to:
+  /// **'Full gym'**
+  String get genEquipFullGym;
+
+  /// No description provided for @genEquipBasic.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic gym'**
+  String get genEquipBasic;
+
+  /// No description provided for @genEquipHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get genEquipHome;
+
+  /// No description provided for @genPreset.
+  ///
+  /// In en, this message translates to:
+  /// **'PRESET'**
+  String get genPreset;
+
+  /// No description provided for @genStylePpl.
+  ///
+  /// In en, this message translates to:
+  /// **'PPL'**
+  String get genStylePpl;
+
+  /// No description provided for @genStyleUpperLower.
+  ///
+  /// In en, this message translates to:
+  /// **'Upper / Lower'**
+  String get genStyleUpperLower;
+
+  /// No description provided for @genStyleFullBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Body'**
+  String get genStyleFullBody;
+
+  /// No description provided for @genStyleBro.
+  ///
+  /// In en, this message translates to:
+  /// **'Bro Split'**
+  String get genStyleBro;
+
+  /// No description provided for @genStyleArnold.
+  ///
+  /// In en, this message translates to:
+  /// **'Arnold'**
+  String get genStyleArnold;
+
+  /// No description provided for @genStyleCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom'**
+  String get genStyleCustom;
+
+  /// No description provided for @genWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'YOUR WEEK'**
+  String get genWeek;
+
+  /// No description provided for @genWeekHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a day to pick muscles and generate its workout.'**
+  String get genWeekHint;
+
+  /// No description provided for @genRest.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest'**
+  String get genRest;
+
+  /// No description provided for @genRestHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest day — no workout generated.'**
+  String get genRestHint;
+
+  /// No description provided for @genMusclesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'MUSCLES'**
+  String get genMusclesLabel;
+
+  /// No description provided for @genTapMuscles.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the muscles to train on this day.'**
+  String get genTapMuscles;
+
+  /// No description provided for @genNoMuscles.
+  ///
+  /// In en, this message translates to:
+  /// **'No muscles selected for today.'**
+  String get genNoMuscles;
+
+  /// No description provided for @genGenerateDay.
+  ///
+  /// In en, this message translates to:
+  /// **'GENERATE'**
+  String get genGenerateDay;
+
+  /// No description provided for @genRegenerateDay.
+  ///
+  /// In en, this message translates to:
+  /// **'REGENERATE'**
+  String get genRegenerateDay;
+
+  /// No description provided for @genClearDay.
+  ///
+  /// In en, this message translates to:
+  /// **'CLEAR'**
+  String get genClearDay;
+
+  /// No description provided for @genAddMusclesFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Add muscles first'**
+  String get genAddMusclesFirst;
+
+  /// No description provided for @genReplace.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace'**
+  String get genReplace;
+
+  /// No description provided for @genRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get genRemove;
+
+  /// No description provided for @genGenerateWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'GENERATE FULL WEEK'**
+  String get genGenerateWeek;
+
+  /// No description provided for @genRegenerateWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'REGENERATE WEEK'**
+  String get genRegenerateWeek;
+
+  /// No description provided for @genClearWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'CLEAR WEEK'**
+  String get genClearWeek;
+
+  /// No description provided for @genSavePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'SAVE AS PLAN'**
+  String get genSavePlan;
+
+  /// No description provided for @genSavedToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan saved.'**
+  String get genSavedToast;
+
+  /// No description provided for @genDefaultPlanName.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated Week'**
+  String get genDefaultPlanName;
+
+  /// No description provided for @genMsgBuilding.
+  ///
+  /// In en, this message translates to:
+  /// **'Building your workout…'**
+  String get genMsgBuilding;
+
+  /// No description provided for @genMsgBalancing.
+  ///
+  /// In en, this message translates to:
+  /// **'Balancing muscle volume…'**
+  String get genMsgBalancing;
+
+  /// No description provided for @genMsgSelecting.
+  ///
+  /// In en, this message translates to:
+  /// **'Selecting exercises…'**
+  String get genMsgSelecting;
+
+  /// No description provided for @genMsgFinalizing.
+  ///
+  /// In en, this message translates to:
+  /// **'Finalizing your plan…'**
+  String get genMsgFinalizing;
+
+  /// No description provided for @genLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t generate this workout. Try another muscle or preference.'**
+  String get genLoadError;
+
+  /// No description provided for @genSaveHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated from {goal} · {difficulty}'**
+  String genSaveHint(String goal, String difficulty);
+
+  /// No description provided for @genMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, =1{{n} min} other{{n} min}}'**
+  String genMinutes(int n);
+
+  /// No description provided for @genGeneratedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated'**
+  String get genGeneratedOn;
+
+  /// No description provided for @genMax.
+  ///
+  /// In en, this message translates to:
+  /// **'Max'**
+  String get genMax;
+
   /// No description provided for @profileTitle.
   ///
   /// In en, this message translates to:

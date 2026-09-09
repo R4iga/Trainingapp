@@ -17,6 +17,7 @@ import '../screens/note_edit_screen.dart';
 import '../screens/notes_screen.dart';
 import '../screens/onboarding_screen.dart';
 import '../screens/plan_edit_screen.dart';
+import '../screens/plan_generator_screen.dart';
 import '../screens/plan_library_screen.dart';
 import '../screens/profile_screen.dart';
 import '../screens/plans_screen.dart';
@@ -162,6 +163,8 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
         return PlansScreen();
       case 'plan-edit':
         return PlanEditScreen();
+      case 'plan-generator':
+        return PlanGeneratorScreen();
       case 'plan-library':
         return PlanLibraryScreen();
       case 'measures':

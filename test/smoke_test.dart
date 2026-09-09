@@ -44,6 +44,9 @@ void main() {
     'note-edit',
     'measures',
     'timeline',
+    'plans',
+    'plan-generator',
+    'plan-library',
   ]) {
     testWidgets('$route draws without blowing up', (tester) async {
       await visit(tester, route);

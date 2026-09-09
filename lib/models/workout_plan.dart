@@ -123,18 +123,24 @@ class WorkoutPlanDay {
   WorkoutPlanDay({
     required this.name,
     required this.exercises,
+    this.muscles = const [],
   });
 
   String name;
   List<WorkoutPlanExercise> exercises;
 
+  /// Target muscle ids for this day (used by the plan generator).
+  List<String> muscles;
+
   Map<String, dynamic> toJson() => {
         'n': name,
+        if (muscles.isNotEmpty) 'm': muscles,
         'ex': exercises.map((e) => e.toJson()).toList(),
       };
 
   factory WorkoutPlanDay.fromJson(Map<String, dynamic> j) => WorkoutPlanDay(
         name: (j['n'] as String?) ?? '',
+        muscles: ((j['m'] as List?) ?? const []).cast<String>(),
         exercises: ((j['ex'] as List?) ?? const [])
             .map((e) => WorkoutPlanExercise.fromJson((e as Map).cast<String, dynamic>()))
             .toList(),
