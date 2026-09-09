@@ -801,5 +801,19 @@
       "volume": { "type": "String" },
       "when": { "type": "String" }
     }
-  }
+  },
+
+  "coachUp": "Prova {weight} × {reps} - l'ultima volta hai fatto {last}",
+  "@coachUp": { "placeholders": { "weight": { "type": "String" }, "reps": { "type": "String" }, "last": { "type": "int" } } },
+  "coachDown": "L'ultima volta hai mancato {last} - prova {weight} × {reps}",
+  "@coachDown": { "placeholders": { "weight": { "type": "String" }, "reps": { "type": "String" }, "last": { "type": "int" } } },
+  "coachHold": "Tieni {weight} × {reps}",
+  "@coachHold": { "placeholders": { "weight": { "type": "String" }, "reps": { "type": "String" } } },
+  "wtToday": "OGGI",
+  "wtRest": "Giorno di riposo",
+  "wtNoPlan": "Ancora nessun piano",
+  "wtNextUp": "PROSSIMO",
+  "wtSets": "serie",
+  "addTodayWidget": "Aggiungi widget di oggi",
+  "addNextUpWidget": "Aggiungi widget successivo"
 }

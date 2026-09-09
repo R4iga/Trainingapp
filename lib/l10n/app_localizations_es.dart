@@ -2323,4 +2323,40 @@ class AppLocalizationsEs extends AppLocalizations {
   String feedSessionCard(String exercises, String volume, String when) {
     return 'Entreno: $exercises ejercicios · $volume · $when';
   }
+
+  @override
+  String coachUp(String weight, String reps, int last) {
+    return 'Prueba $weight × $reps - la última vez hiciste $last';
+  }
+
+  @override
+  String coachDown(String weight, String reps, int last) {
+    return 'Fallaste $last la última vez - prueba $weight × $reps';
+  }
+
+  @override
+  String coachHold(String weight, String reps) {
+    return 'Mantén $weight × $reps';
+  }
+
+  @override
+  String get wtToday => 'HOY';
+
+  @override
+  String get wtRest => 'Día de descanso';
+
+  @override
+  String get wtNoPlan => 'Aún sin plan';
+
+  @override
+  String get wtNextUp => 'SIGUIENTE';
+
+  @override
+  String get wtSets => 'series';
+
+  @override
+  String get addTodayWidget => 'Añadir widget de hoy';
+
+  @override
+  String get addNextUpWidget => 'Añadir widget siguiente';
 }

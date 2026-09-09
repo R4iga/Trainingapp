@@ -4216,6 +4216,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Workout: {exercises} exercises · {volume} · {when}'**
   String feedSessionCard(String exercises, String volume, String when);
+
+  /// No description provided for @coachUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Try {weight} × {reps} - you hit {last} last time'**
+  String coachUp(String weight, String reps, int last);
+
+  /// No description provided for @coachDown.
+  ///
+  /// In en, this message translates to:
+  /// **'You missed {last} last time - try {weight} × {reps}'**
+  String coachDown(String weight, String reps, int last);
+
+  /// No description provided for @coachHold.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold {weight} × {reps}'**
+  String coachHold(String weight, String reps);
+
+  /// No description provided for @wtToday.
+  ///
+  /// In en, this message translates to:
+  /// **'TODAY'**
+  String get wtToday;
+
+  /// No description provided for @wtRest.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest day'**
+  String get wtRest;
+
+  /// No description provided for @wtNoPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'No plan yet'**
+  String get wtNoPlan;
+
+  /// No description provided for @wtNextUp.
+  ///
+  /// In en, this message translates to:
+  /// **'NEXT UP'**
+  String get wtNextUp;
+
+  /// No description provided for @wtSets.
+  ///
+  /// In en, this message translates to:
+  /// **'sets'**
+  String get wtSets;
+
+  /// No description provided for @addTodayWidget.
+  ///
+  /// In en, this message translates to:
+  /// **'Add today\'s widget'**
+  String get addTodayWidget;
+
+  /// No description provided for @addNextUpWidget.
+  ///
+  /// In en, this message translates to:
+  /// **'Add next-up widget'**
+  String get addNextUpWidget;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
