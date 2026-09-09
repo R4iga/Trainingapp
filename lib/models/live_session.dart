@@ -55,6 +55,7 @@ class WorkoutSession {
   int? summaryVolume;
   int? summarySets;
   int? summaryDuration;
+  /// Plan the session was started from (nullable for freestyle workouts).
   String? planId;
   int? planDayIndex;
 
