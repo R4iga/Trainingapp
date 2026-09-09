@@ -69,4 +69,21 @@ mixin CoachState on FitCore, LibraryState, PlansState, StatsState, WorkoutState 
     }
     return out;
   }
+
+  /// Apply [exIdx]'s suggestion to its next undone working set: sets the
+  /// weight (display → stored kg) and the top of the rep range.
+  void applyHint(int exIdx) {
+    final s = session;
+    if (s == null) return;
+    if (exIdx < 0 || exIdx >= s.exercises.length) return;
+    final ex = s.exercises[exIdx];
+    final h = nextSetHints()[ex.id];
+    if (h == null || !h.hasSuggestion || h.suggestedWeight == null) return;
+    final idx = ex.sets.indexWhere((st) => !st.done && st.kind == SetKind.normal);
+    if (idx < 0) return;
+    ex.sets[idx].weight = _round3(fromDisplayWeight(h.suggestedWeight!).clamp(0, 1000));
+    ex.sets[idx].reps = h.targetMax.clamp(0, 999);
+    _persist();
+    notifyListeners();
+  }
 }

@@ -97,4 +97,46 @@ void main() {
     fit.startSession();
     expect(fit.nextSetHints().containsKey('EIeI8Vf'), isFalse);
   });
+
+  test('applyHint fills the next undone working set with weight and reps', () {
+    logBench(10, 60);
+    fit.plans.add(twoDayPlan());
+    fit.startPlanDay(fit.plans.last, 0);
+    fit.addSet(0); // a second set to fill (opening pre-fills from history)
+    fit.toggleSet(0, 0); // first set logged
+    fit.applyHint(0);
+    final next = fit.session!.exercises[0].sets.firstWhere(
+      (s) => !s.done && s.kind == SetKind.normal,
+    );
+    expect(next.weight, closeTo(62.5, 0.001));
+    expect(next.reps, 10, reason: 'apunta a la parte alta del rango');
+  });
+
+  test('applyHint does nothing when every set is done', () {
+    logBench(10, 60);
+    fit.plans.add(twoDayPlan());
+    fit.startPlanDay(fit.plans.last, 0);
+    final sets = fit.session!.exercises[0].sets;
+    for (var j = 0; j < sets.length; j++) {
+      fit.toggleSet(0, j);
+    }
+    final before = sets.last.weight;
+    fit.applyHint(0);
+    expect(sets.last.weight, before);
+  });
+
+  test('applyHint respects the display unit conversion', () {
+    logBench(10, 60);
+    fit.setUnits('lb');
+    fit.plans.add(twoDayPlan());
+    fit.startPlanDay(fit.plans.last, 0);
+    fit.addSet(0);
+    fit.toggleSet(0, 0);
+    fit.applyHint(0);
+    final next = fit.session!.exercises[0].sets.firstWhere(
+      (s) => !s.done && s.kind == SetKind.normal,
+    );
+    // last display max = 60 kg * 2.20462 = 132.28 lb; plate 5 lb -> roundUp 140 lb.
+    expect(next.weight, closeTo(140 / 2.20462, 0.01));
+  });
 }
