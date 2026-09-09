@@ -330,7 +330,7 @@ class TodayWidgetView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String _daysOrPlan() {
+    String daysOrPlan() {
       if (data.live) return data.dayName ?? t.wtToday;
       if (data.rest) return t.wtRest;
       return data.dayName ?? t.wtNoPlan;
@@ -374,7 +374,7 @@ class TodayWidgetView extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 6),
-          Text(_daysOrPlan(),
+          Text(daysOrPlan(),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
